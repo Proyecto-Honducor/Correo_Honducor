@@ -4,9 +4,122 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Honducor"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="1080" Foreground="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" >
+    <Window.Resources>
+        <Storyboard x:Key="AbrirMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CerrarMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonAbrirMenu">
+            <BeginStoryboard Storyboard="{StaticResource AbrirMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCerrarMenu">
+            <BeginStoryboard Storyboard="{StaticResource CerrarMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Background="#ffffff">
+        <Grid Height="81" VerticalAlignment="Bottom"  >
+            <Grid.Background>
+                <SolidColorBrush Color="#90caf9" Opacity="0.3"/>
+            </Grid.Background>
+            <TextBlock Name="datelbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="#406e90" Margin="849,2,10,41" Width="221" Height="38">r</TextBlock>
+            <TextBlock Name="hourlbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="806,37,10,6" Width="264" Height="38">
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="#406e90" Opacity="0.8"></SolidColorBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+        </Grid>
+
+        <Grid Height="60" VerticalAlignment="Top" Background="#90caf9">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
+            </Grid.Effect>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Administrador" VerticalAlignment="Center" FontSize="16" Foreground="#406e90"/>
+                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="Black">
+                    <StackPanel Width="150">
+                        <Button x:Name="BtnCerrarSesion" Content="Cerrar Sesion" Click="BtnCerrarSesion_Click"/>
+                        <Button x:Name="BtnSalir" Content="Salir" Click="BtnSalir_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="#406e90">Menu</TextBlock>
+        </Grid>
+        <Grid x:Name="GridMenu" Width="61" HorizontalAlignment="Left" Background="#5d99c6" >
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+            </Grid.Effect>
+            <StackPanel  >
+                <Grid Height="177" Background="#90caf9" RenderTransformOrigin="0.5,0.5" Margin="0,0,0.4,0" >
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button x:Name="ButtonAbrirMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonAbrirMenu_Click">
+                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonCerrarMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCerrarMenu_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <Image Source="C:\Users\MARIO ARGUETA\Desktop\honducor.png" Height="130" VerticalAlignment="Stretch" RenderTransformOrigin="0.494,0.308" Margin="0,36,0,10"/>
+
+                </Grid>
+                <ListView x:Name="ListViewMenu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Center" Height="350" Margin="0,0,0.4,0">
+                    <ListViewItem x:Name="ItemEmpleados" Height="55"  Background="#5d99c6">
+                        <StackPanel Orientation="Horizontal" Background="#ffffff">
+                            <materialDesign:PackIcon Kind="HumanHandsdown" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Empleados" VerticalAlignment="Center" Margin="20 10" Width="75" Foreground="#406e90"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemFacturacion" Height="55">
+                        <StackPanel Orientation="Horizontal" Background="White">
+                            <materialDesign:PackIcon Kind="Coin" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Facturacion" VerticalAlignment="Center" Margin="20 10"  Width="75" Foreground="#406e90"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemHistorial" Height="55">
+                        <StackPanel  Orientation="Horizontal" Background="White">
+                            <materialDesign:PackIcon Kind="History" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Historial" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemCargo" Height="55">
+                        <StackPanel  Orientation="Horizontal" Background="White">
+                            <materialDesign:PackIcon Kind="AssignmentInd" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Cargo" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemCategoria" Height="55">
+                        <StackPanel  Orientation="Horizontal" Background="White">
+                            <materialDesign:PackIcon Kind="Class" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Categoria" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemClientes" Height="55">
+                        <StackPanel  Orientation="Horizontal" Background="White">
+                            <materialDesign:PackIcon Kind="Face" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Clientes" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                </ListView>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
