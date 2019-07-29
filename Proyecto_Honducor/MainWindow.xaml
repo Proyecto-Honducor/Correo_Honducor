@@ -34,8 +34,8 @@
             <Grid.Background>
                 <SolidColorBrush Color="#90caf9" Opacity="0.3"/>
             </Grid.Background>
-            <TextBlock Name="datelbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="#406e90" Margin="849,2,10,41" Width="221" Height="38">r</TextBlock>
-            <TextBlock Name="hourlbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="806,37,10,6" Width="264" Height="38">
+            <TextBlock Name="datelbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="#406e90" Margin="812,4,47,39" Width="221" Height="38">r</TextBlock>
+            <TextBlock Name="hourlbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="769,37,4,6" Width="307" Height="38">
                 <TextBlock.Foreground>
                     <SolidColorBrush Color="#406e90" Opacity="0.8"></SolidColorBrush>
                 </TextBlock.Foreground>

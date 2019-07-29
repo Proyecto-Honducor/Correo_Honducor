@@ -37,8 +37,12 @@ namespace Proyecto_Honducor
 
         private void tickevent(object sender, EventArgs e)
         {
+            var hn = new System.Globalization.CultureInfo("es-HN");
+           //hourlbl.Text= DateTime.Parse("29/7/2019", hn).ToLongDateString();
             datelbl.Text = DateTime.Now.ToLongTimeString();
-            hourlbl.Text = DateTime.Now.ToLongDateString();
+           // hourlbl.Text = DateTime.Now.ToLongDateString();
+            hourlbl.Text = DateTime.Now.ToString("D",hn);
+           
         }
 
         private void ButtonAbrirMenu_Click(object sender, RoutedEventArgs e)
