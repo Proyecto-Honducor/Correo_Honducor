@@ -58,7 +58,6 @@ namespace Proyecto_Honducor
         }
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UserControl usc = null;
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
@@ -134,9 +133,6 @@ namespace Proyecto_Honducor
         private void BtnCuenta_Click(object sender, RoutedEventArgs e)
         {
 
-            UserControl usc = null;
-          //  usc = new Ayuda();
-            //GridMain.Children.Add(usc);
 
         }
     }

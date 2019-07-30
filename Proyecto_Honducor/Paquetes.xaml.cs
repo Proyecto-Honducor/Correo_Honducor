@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace Proyecto_Honducor
 {
     /// <summary>
-    /// Lógica de interacción para Login.xaml
+    /// Lógica de interacción para Paquetes.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Paquetes : Window
     {
-        public Login()
+        public Paquetes()
         {
             InitializeComponent();
-        }
-
-        private void Salir_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }
