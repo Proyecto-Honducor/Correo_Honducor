@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Proyecto_Honducor
 {
     /// <summary>
-    /// Lógica de interacción para Login.xaml
+    /// Lógica de interacción para ControlPaquete.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class ControlPaquete : UserControl
     {
-        public Login()
+        public ControlPaquete()
         {
             InitializeComponent();
-        }
-
-        private void Salir_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }
