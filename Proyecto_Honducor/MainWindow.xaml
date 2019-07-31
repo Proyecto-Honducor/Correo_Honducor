@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Proyecto_Honducor"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1080" Foreground="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" >
+        Title="MainWindow" Height="700" Width="1280" Foreground="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" >
     <Window.Resources>
         <Storyboard x:Key="AbrirMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -55,7 +55,7 @@
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="#406e90">Menu</TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="White">Menu</TextBlock>
         </Grid>
         <Grid x:Name="GridMenu" Width="177" HorizontalAlignment="Left" Background="#5d99c6" >
             <Grid.Effect>

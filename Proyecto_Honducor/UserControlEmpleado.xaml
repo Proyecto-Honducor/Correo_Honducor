@@ -6,20 +6,65 @@
              xmlns:local="clr-namespace:Proyecto_Honducor"
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    
+             d:DesignHeight="600" d:DesignWidth="640">
+
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="500"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Background="#90caf9" Height="50" VerticalAlignment="Top" Grid.Row="0">
-            <TextBlock Text="EMPLEADOS" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White" />
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,9" Background="#FFAE9A8B" BorderBrush="#FFAE9A8B" Click="Button_Click" >
-                <materialDesign:PackIcon Kind="Close" Height="20" Width="20"/>
+            <TextBlock Text="EMPLEADOS" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="white" />
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" >
+                <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
             </Button>
+        </Grid>
+        <Grid Grid.Row="2"  Background="White">
+            <StackPanel Orientation="Horizontal"  Grid.Column="0"  Margin="80,0,0,0">
+                <StackPanel Width="550" Height="398" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Identidad                    " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                        <TextBox x:Name="Identidad" Background="White" Width="272"  FontSize="20" Foreground="Black" RenderTransformOrigin="0.401,4.072"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Nombre                      " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                        <TextBox x:Name="Nombre" Background="White" Width="272" FontSize="20" Foreground="Black"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Apellido                      " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                        <TextBox x:Name="Apellido" Background="White" Width="272" FontSize="20" Foreground="Black"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Sexo                          " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                        <ComboBox x:Name="cbSexo" Text="Seleccione una opcion" FontSize="20" Foreground="Black" Width="272" VerticalAlignment="Center" Margin="10,0,0,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Fecha de nacimiento" VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                        <DatePicker x:Name="Fecha" Width="272" Margin="10,0,0,0" FontSize="20" Foreground="Black"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Direccion                    " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                        <TextBox x:Name="Direccion" Background="White" Width="272" FontSize="20" Foreground="Black"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Estado Civil              " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                        <ComboBox x:Name="EstadoCivil" IsEditable="True" IsReadOnly="True" Text="Seleccione una opcion" FontSize="20"  Margin="10" Width="272" Foreground="Black"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Cargo                       " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                        <ComboBox x:Name="Cargo" IsEditable="True" IsReadOnly="True" Text="Seleccione una opcion" FontSize="20"  Margin="10" Width="270" Foreground="Black"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="0,10,0,0">
+
+                    </StackPanel>
+
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="btnBuscar" Content="Buscar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="112,417,416,39" FontSize="15" Height="44"/>
+            <Button x:Name="btnGuardar" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="264,417,263,39" FontSize="15" Height="44"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="414,417,112,39" FontSize="15" Height="44" RenderTransformOrigin="0.861,0.526"/>
         </Grid>
     </Grid>
 </UserControl>
