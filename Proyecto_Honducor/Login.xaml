@@ -30,11 +30,11 @@
             <Label Content="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18"/>
             <StackPanel VerticalAlignment="Center" Margin="15">
                 <TextBox x:Name="txtUsuario" Margin="0,10" materialDesign:HintAssist.Hint="USUARIO" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
-                <PasswordBox x:Name="txtContrasena" Margin="0,10" materialDesign:HintAssist.Hint="CONTRASEÑA" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <PasswordBox x:Name="txtContrasena" Margin="0,10" materialDesign:HintAssist.Hint="CONTRASEÑA" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" Margin="0,65" HorizontalAlignment="Center">
-            <Button Width="100"  VerticalAlignment="Bottom"  Content="INGRESAR" Margin="5" Background="#5d99c6" BorderBrush="#2A2D34" Click="Button_Click" />
+            <Button x:Name="btningresar" Width="100"  VerticalAlignment="Bottom"  Content="INGRESAR" Margin="5" Background="#5d99c6" BorderBrush="#2A2D34" Click="Btningresar_Click" />
             <Button x:Name="salir" Width="100" VerticalAlignment="Bottom"  Content="SALIR" Margin="5"  Background="#5d99c6" BorderBrush="#2A2D34" Click="Salir_Click"/>
         </StackPanel>
         <Image Source="Imagen\honducor.png" Height="170" VerticalAlignment="Top" Margin="63,10,64.4,0"/>

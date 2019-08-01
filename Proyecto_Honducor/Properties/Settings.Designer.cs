@@ -26,18 +26,8 @@ namespace Proyecto_Honducor.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local)\\sqlexpress;Initial Catalog=Universidad;Integrated Security=Tr" +
-            "ue")]
-        public string UniversidadConnectionString {
-            get {
-                return ((string)(this["UniversidadConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local)\\sqlexpress;Initial Catalog=Honducor;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RV9MRO8\\SQLEXPRESS;Initial Catalog=Honducor;Integrated Securi" +
+            "ty=True")]
         public string HonducorConnectionString {
             get {
                 return ((string)(this["HonducorConnectionString"]));

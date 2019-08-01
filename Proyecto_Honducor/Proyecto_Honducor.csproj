@@ -42,6 +42,7 @@
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
@@ -62,6 +63,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClaseGlobal.cs" />
+    <Compile Include="HonducorDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HonducorDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LinqToSqlDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LinqToSqlDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEmpleado.xaml.cs">
+      <DependentUpon>UserControlEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Empleados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,10 +93,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LinqToSql.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LinqToSql.dbml</DependentUpon>
+    <Compile Include="Empleados.xaml.cs">
+      <DependentUpon>Empleados.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -109,13 +126,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="LinqToSql.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>LinqToSql.designer.cs</LastGenOutput>
+    <None Include="HonducorDataSet.xsc">
+      <DependentUpon>HonducorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HonducorDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HonducorDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="LinqToSql.dbml.layout">
-      <DependentUpon>LinqToSql.dbml</DependentUpon>
+    <None Include="HonducorDataSet.xss">
+      <DependentUpon>HonducorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LinqToSqlDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LinqToSqlDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LinqToSqlDataClasses.dbml.layout">
+      <DependentUpon>LinqToSqlDataClasses.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

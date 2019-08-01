@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace Proyecto_Honducor
 {
@@ -19,9 +20,15 @@ namespace Proyecto_Honducor
     /// </summary>
     public partial class Login : Window
     {
+        ClaseGlobal cglobal = new ClaseGlobal();
+        LinqToSqlDataClassesDataContext dataContext;
         public Login()
         {
             InitializeComponent();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Proyecto_Honducor.Properties.Settings.HonducorConnectionString"].ConnectionString;
+
+            dataContext = new LinqToSqlDataClassesDataContext(connectionString);
         }
 
         private void Salir_Click(object sender, RoutedEventArgs e)
@@ -29,10 +36,39 @@ namespace Proyecto_Honducor
             Application.Current.Shutdown();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btningresar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow ven = new MainWindow();
-            ven.Show();
+            try
+            {
+                var usuariologeado = dataContext.Usuario.First(usu => usu.nombreUsuario.Equals(txtUsuario.Text));
+                if (usuariologeado == null)
+                {
+                    MessageBox.Show("ingrese un usuario valido");
+                    txtUsuario.Text = "";
+                    txtUsuario.Focus();
+                }
+                else
+                {
+                if (usuariologeado.contrasenia == txtContrasena.Password)
+                {
+                    MessageBox.Show("Logueado con exito");
+                    ClaseGlobal.Nomlog = txtUsuario.Text;
+                    ClaseGlobal.Cargolog = usuariologeado.nivel;
+                    this.Close();
+                }
+                }
+               
+
+                //ClaseGlobal.Nomlog = usuariologeado.ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+            
         }
     }
 }
