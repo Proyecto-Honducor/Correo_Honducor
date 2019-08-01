@@ -23,6 +23,7 @@
       <Column Name="idCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="estadoCivil" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
       <Association Name="Empleado_Venta" Member="Venta" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Venta" />
+      <Association Name="Empleado_Usuario" Member="Usuario" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Usuario" />
       <Association Name="Cargo_Empleado" Member="Cargo" ThisKey="idCargo" OtherKey="idCargo" Type="Cargo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
@@ -79,6 +80,16 @@
       <Column Name="nombreCategoria" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="Categoria_Paquete" Member="Paquete" ThisKey="idCategoria" OtherKey="idCategoria" Type="Paquete" />
+    </Type>
+  </Table>
+  <Table Name="Persona.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="contrasenia" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nivel" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="idEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Empleado_Usuario" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>

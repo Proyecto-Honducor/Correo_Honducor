@@ -20,13 +20,13 @@ namespace Proyecto_Honducor
     /// </summary>
     public partial class Login : Window
     {
-
+        ClaseGlobal cglobal = new ClaseGlobal();
         LinqToSqlDataClassesDataContext dataContext;
         public Login()
         {
             InitializeComponent();
 
-            string connectionString = ConfigurationManager.ConnectionStrings["Honducor.Properties.Settings.UniversidadConnectionString"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["Proyecto_Honducor.Properties.Settings.HonducorConnectionString"].ConnectionString;
 
             dataContext = new LinqToSqlDataClassesDataContext(connectionString);
         }
@@ -38,7 +38,24 @@ namespace Proyecto_Honducor
 
         private void Btningresar_Click(object sender, RoutedEventArgs e)
         {
+            var usuariologeado = (from usu in dataContext.Usuario
+                                 where usu.nombreUsuario.Equals(txtUsuario.Text)
+                                 select usu).First();
+            //var contrasenia = (from contra in dataContext.Usuario
+            //                  where contra.contrasenia.Equals(txtContrasena.Text)
+            //                  select contra).First();
 
+            if(usuariologeado.contrasenia==txtContrasena.Text)
+            {
+                MessageBox.Show("Logueado con exito");
+                ClaseGlobal.Nomlog = txtUsuario.Text;
+                ClaseGlobal.Cargolog = usuariologeado.nivel;
+                this.Close();
+            }
+                
+            //ClaseGlobal.Nomlog = usuariologeado.ToString();
+
+            
         }
     }
 }

@@ -42,12 +42,13 @@
             </TextBlock>
         </Grid>
 
-        <Grid Height="60" VerticalAlignment="Top" Background="#90caf9">
+        <Grid Height="70" VerticalAlignment="Top" Background="#90caf9">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
             </Grid.Effect>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Administrador" VerticalAlignment="Center" FontSize="16" Foreground="#406e90"/>
+                <Label x:Name="lblusu" Content="usuario" FontSize="17" Foreground="#406e90" Margin="10,2,0,34"/>
+                <Label x:Name="lblcargo" Content="cargo" FontSize="16" Foreground="#406e90" Margin="20,18,0,20"/>
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="Black">
                     <StackPanel Width="150">
                         <Button x:Name="BtnCerrarSesion" Content="Cerrar Sesion" Click="BtnCerrarSesion_Click"/>

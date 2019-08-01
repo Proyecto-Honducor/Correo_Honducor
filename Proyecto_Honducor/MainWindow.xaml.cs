@@ -23,8 +23,20 @@ namespace Proyecto_Honducor
     {
         public MainWindow()
         {
+            
             InitializeComponent();
+            Login log = new Login();
+            log.ShowDialog();
+            lblusu.Content = ClaseGlobal.Nomlog;
+            lblcargo.Content = ClaseGlobal.Cargolog;
             startclock();
+            
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            
+            
         }
 
         private void startclock()

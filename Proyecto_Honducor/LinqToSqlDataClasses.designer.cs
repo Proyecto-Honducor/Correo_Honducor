@@ -51,6 +51,9 @@ namespace Proyecto_Honducor
     partial void InsertCategoria(Categoria instance);
     partial void UpdateCategoria(Categoria instance);
     partial void DeleteCategoria(Categoria instance);
+    partial void InsertUsuario(Usuario instance);
+    partial void UpdateUsuario(Usuario instance);
+    partial void DeleteUsuario(Usuario instance);
     #endregion
 		
 		public LinqToSqlDataClassesDataContext() : 
@@ -136,6 +139,14 @@ namespace Proyecto_Honducor
 			get
 			{
 				return this.GetTable<Categoria>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Usuario> Usuario
+		{
+			get
+			{
+				return this.GetTable<Usuario>();
 			}
 		}
 	}
@@ -358,6 +369,8 @@ namespace Proyecto_Honducor
 		
 		private EntitySet<Venta> _Venta;
 		
+		private EntitySet<Usuario> _Usuario;
+		
 		private EntityRef<Cargo> _Cargo;
 		
     #region Definiciones de métodos de extensibilidad
@@ -389,6 +402,7 @@ namespace Proyecto_Honducor
 		public Empleado()
 		{
 			this._Venta = new EntitySet<Venta>(new Action<Venta>(this.attach_Venta), new Action<Venta>(this.detach_Venta));
+			this._Usuario = new EntitySet<Usuario>(new Action<Usuario>(this.attach_Usuario), new Action<Usuario>(this.detach_Usuario));
 			this._Cargo = default(EntityRef<Cargo>);
 			OnCreated();
 		}
@@ -610,6 +624,19 @@ namespace Proyecto_Honducor
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Empleado_Usuario", Storage="_Usuario", ThisKey="idEmpleado", OtherKey="idEmpleado")]
+		public EntitySet<Usuario> Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				this._Usuario.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cargo_Empleado", Storage="_Cargo", ThisKey="idCargo", OtherKey="idCargo", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Cargo Cargo
 		{
@@ -671,6 +698,18 @@ namespace Proyecto_Honducor
 		}
 		
 		private void detach_Venta(Venta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Empleado = null;
+		}
+		
+		private void attach_Usuario(Usuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Empleado = this;
+		}
+		
+		private void detach_Usuario(Usuario entity)
 		{
 			this.SendPropertyChanging();
 			entity.Empleado = null;
@@ -1822,6 +1861,205 @@ namespace Proyecto_Honducor
 		{
 			this.SendPropertyChanging();
 			entity.Categoria = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Persona.Usuario")]
+	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idUsuario;
+		
+		private string _nombreUsuario;
+		
+		private string _contrasenia;
+		
+		private string _nivel;
+		
+		private int _idEmpleado;
+		
+		private EntityRef<Empleado> _Empleado;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidUsuarioChanging(int value);
+    partial void OnidUsuarioChanged();
+    partial void OnnombreUsuarioChanging(string value);
+    partial void OnnombreUsuarioChanged();
+    partial void OncontraseniaChanging(string value);
+    partial void OncontraseniaChanged();
+    partial void OnnivelChanging(string value);
+    partial void OnnivelChanged();
+    partial void OnidEmpleadoChanging(int value);
+    partial void OnidEmpleadoChanged();
+    #endregion
+		
+		public Usuario()
+		{
+			this._Empleado = default(EntityRef<Empleado>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this.OnidUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._idUsuario = value;
+					this.SendPropertyChanged("idUsuario");
+					this.OnidUsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreUsuario", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string nombreUsuario
+		{
+			get
+			{
+				return this._nombreUsuario;
+			}
+			set
+			{
+				if ((this._nombreUsuario != value))
+				{
+					this.OnnombreUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._nombreUsuario = value;
+					this.SendPropertyChanged("nombreUsuario");
+					this.OnnombreUsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contrasenia", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string contrasenia
+		{
+			get
+			{
+				return this._contrasenia;
+			}
+			set
+			{
+				if ((this._contrasenia != value))
+				{
+					this.OncontraseniaChanging(value);
+					this.SendPropertyChanging();
+					this._contrasenia = value;
+					this.SendPropertyChanged("contrasenia");
+					this.OncontraseniaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nivel", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string nivel
+		{
+			get
+			{
+				return this._nivel;
+			}
+			set
+			{
+				if ((this._nivel != value))
+				{
+					this.OnnivelChanging(value);
+					this.SendPropertyChanging();
+					this._nivel = value;
+					this.SendPropertyChanged("nivel");
+					this.OnnivelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmpleado", DbType="Int NOT NULL")]
+		public int idEmpleado
+		{
+			get
+			{
+				return this._idEmpleado;
+			}
+			set
+			{
+				if ((this._idEmpleado != value))
+				{
+					if (this._Empleado.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEmpleadoChanging(value);
+					this.SendPropertyChanging();
+					this._idEmpleado = value;
+					this.SendPropertyChanged("idEmpleado");
+					this.OnidEmpleadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Empleado_Usuario", Storage="_Empleado", ThisKey="idEmpleado", OtherKey="idEmpleado", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Empleado Empleado
+		{
+			get
+			{
+				return this._Empleado.Entity;
+			}
+			set
+			{
+				Empleado previousValue = this._Empleado.Entity;
+				if (((previousValue != value) 
+							|| (this._Empleado.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Empleado.Entity = null;
+						previousValue.Usuario.Remove(this);
+					}
+					this._Empleado.Entity = value;
+					if ((value != null))
+					{
+						value.Usuario.Add(this);
+						this._idEmpleado = value.idEmpleado;
+					}
+					else
+					{
+						this._idEmpleado = default(int);
+					}
+					this.SendPropertyChanged("Empleado");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
