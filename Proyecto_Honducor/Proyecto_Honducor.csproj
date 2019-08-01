@@ -64,10 +64,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClaseGlobal.cs" />
-    <Compile Include="HonducorDataSet1.Designer.cs">
+    <Compile Include="HonducorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HonducorDataSet1.xsd</DependentUpon>
+      <DependentUpon>HonducorDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="LinqToSqlDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
@@ -126,16 +126,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="HonducorDataSet1.xsc">
-      <DependentUpon>HonducorDataSet1.xsd</DependentUpon>
+    <None Include="HonducorDataSet.xsc">
+      <DependentUpon>HonducorDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HonducorDataSet1.xsd">
-      <SubType>Designer</SubType>
+    <None Include="HonducorDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HonducorDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>HonducorDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="HonducorDataSet1.xss">
-      <DependentUpon>HonducorDataSet1.xsd</DependentUpon>
+    <None Include="HonducorDataSet.xss">
+      <DependentUpon>HonducorDataSet.xsd</DependentUpon>
     </None>
     <None Include="LinqToSqlDataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

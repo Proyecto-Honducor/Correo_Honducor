@@ -40,9 +40,6 @@ namespace Proyecto_Honducor
         {
             try
             {
-                //var usuariologeado = (from usu in dataContext.Usuario
-                //                      where usu.nombreUsuario.Equals(txtUsuario.Text)
-                //                      select usu).First();
                 var usuariologeado = dataContext.Usuario.First(usu => usu.nombreUsuario.Equals(txtUsuario.Text));
                 if (usuariologeado == null)
                 {
@@ -52,7 +49,7 @@ namespace Proyecto_Honducor
                 }
                 else
                 {
-                if (usuariologeado.contrasenia == txtContrasena.Text)
+                if (usuariologeado.contrasenia == txtContrasena.Password)
                 {
                     MessageBox.Show("Logueado con exito");
                     ClaseGlobal.Nomlog = txtUsuario.Text;
