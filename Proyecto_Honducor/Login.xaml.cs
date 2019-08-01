@@ -40,15 +40,18 @@ namespace Proyecto_Honducor
         {
             try
             {
-                var usuariologeado = (from usu in dataContext.Usuario
-                                      where usu.nombreUsuario.Equals(txtUsuario.Text)
-                                      select usu).First();
+                //var usuariologeado = (from usu in dataContext.Usuario
+                //                      where usu.nombreUsuario.Equals(txtUsuario.Text)
+                //                      select usu).First();
+                var usuariologeado = dataContext.Usuario.First(usu => usu.nombreUsuario.Equals(txtUsuario.Text));
                 if (usuariologeado == null)
                 {
                     MessageBox.Show("ingrese un usuario valido");
                     txtUsuario.Text = "";
                     txtUsuario.Focus();
                 }
+                else
+                {
                 if (usuariologeado.contrasenia == txtContrasena.Text)
                 {
                     MessageBox.Show("Logueado con exito");
@@ -56,6 +59,8 @@ namespace Proyecto_Honducor
                     ClaseGlobal.Cargolog = usuariologeado.nivel;
                     this.Close();
                 }
+                }
+               
 
                 //ClaseGlobal.Nomlog = usuariologeado.ToString();
 
