@@ -28,5 +28,11 @@ namespace Proyecto_Honducor
         {
             Application.Current.Shutdown();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow ven = new MainWindow();
+            ven.Show();
+        }
     }
 }

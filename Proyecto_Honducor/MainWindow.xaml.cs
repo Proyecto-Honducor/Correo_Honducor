@@ -58,12 +58,12 @@ namespace Proyecto_Honducor
         }
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UserControl usc = null;
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
                 case "ItemEmpleados":
-                    //usc = new UserControlEmpleados();
-                    //GridMain.Children.Add(usc);
+                    usc = new UserControlEmpleado();
+                    GridMain.Children.Add(usc);
                     break;
                 case "ItemFacturacion":
                     //usc = new UserControlFacturacion();

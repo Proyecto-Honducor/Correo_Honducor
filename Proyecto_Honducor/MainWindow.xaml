@@ -30,12 +30,15 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid Background="#ffffff">
+        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="554" Width="1215" Margin="0,0,10,86">
+            <Image Source="Imagen\honducor.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500" />
+        </Grid>
         <Grid Height="81" VerticalAlignment="Bottom"  >
             <Grid.Background>
                 <SolidColorBrush Color="#90caf9" Opacity="0.3"/>
             </Grid.Background>
             <TextBlock Name="datelbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="#406e90" Margin="812,4,47,39" Width="221" Height="38">Hora</TextBlock>
-            <TextBlock Name="hourlbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="769,37,4,6" Width="307" Height="38">Fecha
+            <TextBlock Name="hourlbl" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="869,37,50,6" Width="361" Height="38">Fecha
                 <TextBlock.Foreground>
                     <SolidColorBrush Color="#406e90" Opacity="0.8"></SolidColorBrush>
                 </TextBlock.Foreground>
@@ -57,7 +60,7 @@
             </StackPanel>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="White">Menu</TextBlock>
         </Grid>
-        <Grid x:Name="GridMenu" Width="177" HorizontalAlignment="Left" Background="#5d99c6" >
+        <Grid x:Name="GridMenu" Width="55" HorizontalAlignment="Left" Background="#5d99c6" >
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
             </Grid.Effect>
@@ -82,9 +85,9 @@
                 </Grid>
                 <ListView x:Name="ListViewMenu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Center" Height="350" Margin="0,0,0.4,0">
                     <ListViewItem x:Name="ItemEmpleados" Height="55"  Background="#5d99c6">
-                        <StackPanel Orientation="Horizontal" Background="#ffffff">
+                        <StackPanel Orientation="Horizontal" Background="#ffffff" >
                             <materialDesign:PackIcon Kind="HumanHandsdown" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
-                            <TextBlock Text="Empleados" VerticalAlignment="Center" Margin="20 10" Width="75" Foreground="#406e90"/>
+                            <TextBlock Text="Empleados" VerticalAlignment="Center" Margin="20 10" Width="75" Foreground="#406e90" />
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemFacturacion" Height="55">

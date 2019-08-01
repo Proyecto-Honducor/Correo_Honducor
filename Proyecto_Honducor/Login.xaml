@@ -34,7 +34,7 @@
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" Margin="0,65" HorizontalAlignment="Center">
-            <Button Width="100"  VerticalAlignment="Bottom"  Content="INGRESAR" Margin="5" Background="#5d99c6" BorderBrush="#2A2D34" />
+            <Button Width="100"  VerticalAlignment="Bottom"  Content="INGRESAR" Margin="5" Background="#5d99c6" BorderBrush="#2A2D34" Click="Button_Click" />
             <Button x:Name="salir" Width="100" VerticalAlignment="Bottom"  Content="SALIR" Margin="5"  Background="#5d99c6" BorderBrush="#2A2D34" Click="Salir_Click"/>
         </StackPanel>
         <Image Source="Imagen\honducor.png" Height="170" VerticalAlignment="Top" Margin="63,10,64.4,0"/>

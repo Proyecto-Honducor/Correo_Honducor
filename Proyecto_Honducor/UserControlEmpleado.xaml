@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Proyecto_Honducor"
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="640">
+             d:DesignHeight="554" d:DesignWidth="1215">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -62,9 +62,9 @@
 
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="btnBuscar" Content="Buscar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="112,417,416,39" FontSize="15" Height="44"/>
-            <Button x:Name="btnGuardar" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="264,417,263,39" FontSize="15" Height="44"/>
-            <Button x:Name="btnEliminar" Content="Eliminar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="414,417,112,39" FontSize="15" Height="44" RenderTransformOrigin="0.861,0.526"/>
+            <Button x:Name="btnBuscar" Content="Buscar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="112,417,790.2,39" FontSize="15" Height="44"/>
+            <Button x:Name="btnGuardar" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="480,417,416.2,39" FontSize="15" Height="44"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="865,417,112.2,39" FontSize="15" Height="44" RenderTransformOrigin="0.861,0.526"/>
         </Grid>
     </Grid>
 </UserControl>
