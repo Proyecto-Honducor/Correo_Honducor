@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace Proyecto_Honducor
 {
@@ -24,6 +25,10 @@ namespace Proyecto_Honducor
         public Login()
         {
             InitializeComponent();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Honducor.Properties.Settings.UniversidadConnectionString"].ConnectionString;
+
+            dataContext = new LinqToSqlDataClassesDataContext(connectionString);
         }
 
         private void Salir_Click(object sender, RoutedEventArgs e)

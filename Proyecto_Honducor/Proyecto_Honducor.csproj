@@ -42,6 +42,7 @@
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
@@ -62,6 +63,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClaseGlobal.cs" />
+    <Compile Include="HonducorDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HonducorDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LinqToSqlDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +126,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="HonducorDataSet1.xsc">
+      <DependentUpon>HonducorDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HonducorDataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HonducorDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="HonducorDataSet1.xss">
+      <DependentUpon>HonducorDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="LinqToSqlDataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>LinqToSqlDataClasses.designer.cs</LastGenOutput>
