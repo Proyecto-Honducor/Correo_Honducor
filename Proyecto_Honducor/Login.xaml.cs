@@ -19,6 +19,8 @@ namespace Proyecto_Honducor
     /// </summary>
     public partial class Login : Window
     {
+
+        LinqToSqlDataClassesDataContext dataContext;
         public Login()
         {
             InitializeComponent();
@@ -27,6 +29,11 @@ namespace Proyecto_Honducor
         private void Salir_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Btningresar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
