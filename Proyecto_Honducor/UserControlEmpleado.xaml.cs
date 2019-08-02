@@ -20,11 +20,24 @@ namespace Proyecto_Honducor
     /// </summary>
     public partial class UserControlEmpleado : UserControl
     {
+        private LinqToSqlDataClassesDataContext data;
         public UserControlEmpleado()
         {
-            InitializeComponent();//
+            InitializeComponent();
+            
         }
 
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            data = new LinqToSqlDataClassesDataContext();
+            var empleado = from u in data.GetTable<Empleado>()
+                           select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
+            dgEmpleado.ItemsSource = empleado.ToList();
+        }
 
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
