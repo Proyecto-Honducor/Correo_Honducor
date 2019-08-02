@@ -77,6 +77,9 @@
     <Compile Include="UserControlEmpleado.xaml.cs">
       <DependentUpon>UserControlEmpleado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlVenta.xaml.cs">
+      <DependentUpon>UserControlVenta.xaml</DependentUpon>
+    </Compile>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControlEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlVenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
