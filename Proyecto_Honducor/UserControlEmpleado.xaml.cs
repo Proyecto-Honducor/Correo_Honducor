@@ -22,7 +22,7 @@ namespace Proyecto_Honducor
     {
         public UserControlEmpleado()
         {
-            InitializeComponent();
+            InitializeComponent();//
         }
 
 
