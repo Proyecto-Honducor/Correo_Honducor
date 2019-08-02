@@ -28,11 +28,11 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="100" Margin="0,0,0,10.2">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Cliente      " FontSize="20" VerticalAlignment="Center"/>
+                    <TextBlock Text="Cliente      " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtCliente" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Empleado  " FontSize="20" VerticalAlignment="Center"/>
+                    <TextBlock Text="Empleado  " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtEmpleado" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
             </StackPanel>
@@ -40,7 +40,7 @@
                 <Image Source="Imagen\honducor.png" Height="100" VerticalAlignment="Top" Margin="10,0,10.2,0" />
             </StackPanel>
         </Grid>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="298" Stroke="Black" VerticalAlignment="Top" Width="1199" Grid.Row="3" Margin="8,0,0,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="298" Stroke="Black" VerticalAlignment="Top" Width="1199" Grid.Row="3" Margin="8,0,0,0"/>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="550"/>
@@ -48,11 +48,11 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="281" Margin="0,10,0.4,109">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Cantidad         " FontSize="20" VerticalAlignment="Center"/>
+                    <TextBlock Text="Cantidad         " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtcantidad" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Precio Unidad  " FontSize="20" VerticalAlignment="Center"/>
+                    <TextBlock Text="Precio Unidad  " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtPrecio" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
@@ -60,7 +60,7 @@
                     <TextBox x:Name="txtIvs" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Total              " FontSize="20" VerticalAlignment="Center"/>
+                    <TextBlock Text="Total              " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtTotal" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="68" HorizontalAlignment="Center" Margin="46,0,53.4,0" Width="451" RenderTransformOrigin="1.132,0.856">

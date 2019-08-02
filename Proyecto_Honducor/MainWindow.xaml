@@ -91,10 +91,10 @@
                             <TextBlock Text="Empleados" VerticalAlignment="Center" Margin="20 10" Width="75" Foreground="#406e90" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemFacturacion" Height="55">
+                    <ListViewItem x:Name="ItemVentas" Height="55">
                         <StackPanel Orientation="Horizontal" Background="White">
                             <materialDesign:PackIcon Kind="Coin" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
-                            <TextBlock Text="Facturacion" VerticalAlignment="Center" Margin="20 10"  Width="75" Foreground="#406e90"/>
+                            <TextBlock Text="Ventas" VerticalAlignment="Center" Margin="20 10"  Width="75" Foreground="#406e90"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemHistorial" Height="55">
