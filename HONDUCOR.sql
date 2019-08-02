@@ -33,12 +33,15 @@ CREATE TABLE Persona.Empleado
 )
 GO
 
+
 CREATE TABLE Persona.Cargo
 (
 	idCargo INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_Persona_Cargo_id PRIMARY KEY CLUSTERED,
 	cargo VARCHAR(15) NOT NULL,
 )
 GO
+
+
 
 CREATE TABLE Persona.Usuario
 (	
@@ -49,6 +52,22 @@ CREATE TABLE Persona.Usuario
 	idEmpleado INT NOT NULL --FOREING
 )
 GO
+
+insert into Persona.Cargo(cargo)
+values('empleado')
+
+insert into Persona.Empleado (identidad, nombre,apellido,direccion,telefono,fechaNac,sexo,idCargo,estadoCivil)
+values('0318199900806', 'Juan', 'Alvarez', 'Bo Abajo', '5458-3880', 1987-06-24, 'M', '02','Soltero')
+
+insert into Persona.Usuario (nombreUsuario, contrasenia, nivel, idEmpleado)
+values('Juan', '123A', 'Empleado', 04)
+
+select * from Persona.Cargo
+go
+select * from Persona.Empleado
+go
+select * from Persona.Usuario
+go
 
 CREATE TABLE Paquete.Paquete
 (
