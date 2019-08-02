@@ -62,9 +62,10 @@
 
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="btnBuscar" Content="Buscar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="112,417,790.2,39" FontSize="15" Height="44"/>
+            <Button x:Name="btnBuscar" Content="Buscar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="112,417,790.2,39" FontSize="15" Height="44" Click="BtnBuscar_Click"/>
             <Button x:Name="btnGuardar" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="480,417,416.2,39" FontSize="15" Height="44"/>
             <Button x:Name="btnEliminar" Content="Eliminar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="865,417,112.2,39" FontSize="15" Height="44" RenderTransformOrigin="0.861,0.526"/>
+            <DataGrid x:Name="dgEmpleado" HorizontalAlignment="Left" Height="355" Margin="580,29,0,0" VerticalAlignment="Top" Width="600"/>
         </Grid>
     </Grid>
 </UserControl>
