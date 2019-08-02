@@ -34,5 +34,10 @@ namespace Proyecto_Honducor
                            select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
             dgEmpleado.ItemsSource = empleado.ToList();
         }
+
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
