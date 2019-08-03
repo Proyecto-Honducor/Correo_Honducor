@@ -38,7 +38,8 @@ namespace Proyecto_Honducor
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            data.Empleado.InsertAllOnSubmit(new Empleado { identidad = txtIdentidad.Text, nombre = txtNombre.Text, apellido = txtApellido.Text, direccion = txtDireccion.Text, telefono = txtTelefono.Text, fechaNac = dateFecha.DisplayDate, estadoCivil = cbEstadoCivil.SelectedItem.ToString(), Cargo = cbCargo.SelectedItem.ToString()});
+            //data.Empleado.InsertAllOnSubmit(new Empleado { identidad = txtIdentidad.Text, nombre = txtNombre.Text, apellido = txtApellido.Text, direccion = txtDireccion.Text, telefono = txtTelefono.Text, fechaNac = dateFecha.DisplayDate, estadoCivil = cbEstadoCivil.SelectedItem.ToString(), Cargo = cbCargo.SelectedItem.ToString()});
+            
         }
     }
 }

@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <Grid Background="#90caf9" Height="50" VerticalAlignment="Bottom" Grid.Row="0">
             <TextBlock Text="Clientes" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="white" />
-            <Button HorizontalAlignment="Right" Margin="0,9,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" Height="Auto" Click="Button_Click">
+            <Button x:Name="btnsalir" HorizontalAlignment="Right" Margin="0,9,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" Height="Auto" Click="Btnsalir_Click" >
                 <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
             </Button>
         </Grid>

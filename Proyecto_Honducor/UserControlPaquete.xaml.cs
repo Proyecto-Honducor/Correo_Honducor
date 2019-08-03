@@ -24,5 +24,10 @@ namespace Proyecto_Honducor
         {
             InitializeComponent();
         }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
