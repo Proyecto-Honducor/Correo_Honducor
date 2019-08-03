@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Honducor" Class="LinqToSqlDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-RV9MRO8\SQLEXPRESS;Initial Catalog=Honducor;Integrated Security=True" SettingsObjectName="Proyecto_Honducor.Properties.Settings" SettingsPropertyName="HonducorConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="Persona.Cliente" Member="Cliente">
-    <Type Name="Cliente">
-      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="identidad" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
-      <Association Name="Cliente_Venta" Member="Venta" ThisKey="idCliente" OtherKey="idCliente" Type="Venta" />
-      <Association Name="Cliente_Paquete" Member="Paquete" ThisKey="idCliente" OtherKey="idCliente" Type="Paquete" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=Honducor;Integrated Security=True" SettingsObjectName="Proyecto_Honducor.Properties.Settings" SettingsPropertyName="HonducorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Persona.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="contrasenia" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nivel" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="idEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Empleado_Usuario" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="Persona.Empleado" Member="Empleado">
@@ -18,13 +18,22 @@
       <Column Name="apellido" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="direccion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="telefono" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="fechaNac" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="sexo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaNac" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="sexo" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
       <Column Name="idCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="estadoCivil" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
-      <Association Name="Empleado_Venta" Member="Venta" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Venta" />
       <Association Name="Empleado_Usuario" Member="Usuario" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Usuario" />
+      <Association Name="Empleado_Venta" Member="Venta" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Venta" />
       <Association Name="Cargo_Empleado" Member="Cargo" ThisKey="idCargo" OtherKey="idCargo" Type="Cargo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Persona.Cliente" Member="Cliente">
+    <Type Name="Cliente">
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="identidad" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Association Name="Cliente_Paquete" Member="Paquete" ThisKey="idCliente" OtherKey="idCliente" Type="Paquete" />
     </Type>
   </Table>
   <Table Name="Persona.Cargo" Member="Cargo">
@@ -38,11 +47,11 @@
     <Type Name="Venta">
       <Column Name="idVenta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="idEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="identidadCliente" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreCompletoCliente" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="fechaVenta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="isv" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Venta_DetalleVenta" Member="DetalleVenta" ThisKey="idVenta" OtherKey="idVenta" Type="DetalleVenta" />
-      <Association Name="Cliente_Venta" Member="Cliente" ThisKey="idCliente" OtherKey="idCliente" Type="Cliente" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Empleado_Venta" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
@@ -80,16 +89,6 @@
       <Column Name="nombreCategoria" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="Categoria_Paquete" Member="Paquete" ThisKey="idCategoria" OtherKey="idCategoria" Type="Paquete" />
-    </Type>
-  </Table>
-  <Table Name="Persona.Usuario" Member="Usuario">
-    <Type Name="Usuario">
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nombreUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="contrasenia" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nivel" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="idEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Empleado_Usuario" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>

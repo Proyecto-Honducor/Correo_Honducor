@@ -54,10 +54,10 @@ CREATE TABLE Persona.Usuario
 GO
 
 insert into Persona.Cargo(cargo)
-values('empleado')
+values('Cartero')
 
 insert into Persona.Empleado (identidad, nombre,apellido,direccion,telefono,fechaNac,sexo,idCargo,estadoCivil)
-values('0318199900806', 'Juan', 'Alvarez', 'Bo Abajo', '5458-3880', 1987-06-24, 'M', '02','Soltero')
+values('0512-1952-01255', 'Mario', 'Caceres', 'Bo Abajo', '5458-3880', 1987-06-24, 'M', '03','Soltero')
 
 insert into Persona.Usuario (nombreUsuario, contrasenia, nivel, idEmpleado)
 values('Juan', '123A', 'Empleado', 04)
@@ -68,7 +68,8 @@ select * from Persona.Empleado
 go
 select * from Persona.Usuario
 go
-
+select * from Paquete.Paquete
+go
 CREATE TABLE Paquete.Paquete
 (
 	idPaquete INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Paquete_Paquete_id PRIMARY KEY CLUSTERED,
@@ -111,6 +112,11 @@ CREATE TABLE Paquete.Venta
 	isv INT NOT NULL,
 )
 GO
+--insert into Persona.Cliente (nombre, identidad, telefono)
+--values('Carlos', '0318-1999-00710', '96522856')
+--insert into Paquete.Venta (idEmpleado, idCliente, fechaVenta, isv)
+--values(03,01,2019-05-12,15)
+--select * from Paquete.Venta
 
 CREATE TABLE Paquete.DetalleVenta
 (
