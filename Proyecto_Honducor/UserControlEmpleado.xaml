@@ -80,7 +80,7 @@
             <Button x:Name="btnGuardar" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="321,485,657.8,40" FontSize="15" Height="44" Click="BtnGuardar_Click"/>
             <Button x:Name="btnEliminar" Content="Eliminar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="608,487,368.8,38" FontSize="15" Height="44" RenderTransformOrigin="0.861,0.526"/>
             <DataGrid x:Name="dgEmpleado1" HorizontalAlignment="Left" Height="355" Margin="580,29,0,0" VerticalAlignment="Top" Width="600" MouseDoubleClick="DgEmpleado1_MouseDoubleClick"/>
-            <Button x:Name="btnagragarusu" Content="Eliminar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="1034,436,16.8,24" FontSize="15" Height="Auto" RenderTransformOrigin="0.861,0.526" Click="Btnagragarusu_Click"/>
+            <Button x:Name="btnagragarusu" Content="Agregar Usuario" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="1034,436,16.8,24" FontSize="15" Height="Auto" RenderTransformOrigin="0.861,0.526" Click="Btnagragarusu_Click"/>
         </Grid>
     </Grid>
 </UserControl>
