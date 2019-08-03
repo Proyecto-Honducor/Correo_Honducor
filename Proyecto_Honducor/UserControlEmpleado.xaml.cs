@@ -42,45 +42,20 @@ namespace Proyecto_Honducor
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            data = new LinqToSqlDataClassesDataContext();
-            List<Empleado> emp = new List<Empleado>();
+            Empleado emp = new Empleado();
+            emp.identidad = txtIdentidad.Text;
+            emp.nombre = txtNombre.Text;
+            emp.apellido = txtApellido.Text;
+            emp.direccion = txtDireccion.Text;
+            emp.telefono = txtTelefono.Text;
+            emp.fechaNac = Convert.ToDateTime(dateFecha.Text);
+            emp.sexo = cbSexo.Text;
+            emp.idCargo = Convert.ToInt32(txtCargo.Text);
+            emp.estadoCivil = cbEstadoCivil.Text;
 
-            emp.Add(new Empleado { identidad = txtIdentidad.Text, nombre = txtNombre.Text, apellido = txtApellido.Text, direccion = txtDireccion.Text, telefono = txtTelefono.Text, fechaNac = Convert.ToDateTime(dateFecha.Text), sexo = txtSexo.Text , idCargo = Convert.ToInt32(txtCargo.Text), estadoCivil =txtEstadoCivil.Text });
-
-            data.Empleado.InsertAllOnSubmit(emp);
+            data.Empleado.InsertOnSubmit(emp);
             data.SubmitChanges();
             dgEmpleado1.ItemsSource = data.Empleado;
-
-            //Empleado emp = new Empleado();
-            //emp.identidad = txtIdentidad.Text;
-            //emp.nombre = txtNombre.Text;
-
-            //emp.apellido = txtApellido.Text;
-            //emp.direccion = txtDireccion.Text;
-            //emp.telefono = txtTelefono.Text;
-            //emp.fechaNac = Convert.ToDateTime(dateFecha.Text);
-            //emp.sexo = cbSexo.SelectedValue.ToString();
-            //emp.idCargo = Convert.ToInt32(txtCargo.Text);
-            //emp.estadoCivil = cbEstadoCivil.SelectedValue.ToString();
-            //data.Empleado.InsertOnSubmit(emp);
-
-            //try
-            //{
-            //    data.SubmitChanges();
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show(ex.ToString());
-            //    data.SubmitChanges();
-            //}
-
-
-            //data = new LinqToSqlDataClassesDataContext();
-            //data.Empleado.InsertOnSubmit(new Empleado { identidad = txtIdentidad.Text, nombre = txtNombre.Text, apellido = txtApellido.Text, direccion = txtDireccion.Text, telefono = txtTelefono.Text, fechaNac = Convert.ToDateTime(dateFecha.Text), estadoCivil = cbEstadoCivil.SelectedItem.ToString(), idCargo = Convert.ToInt32(txtCargo.Text), sexo = cbSexo.SelectedItem.ToString() });
-            //data.SubmitChanges();
-
-
         }
     }
 }
