@@ -47,6 +47,8 @@ namespace Proyecto_Honducor
             datacontext.Usuario.InsertOnSubmit(usu);
             datacontext.SubmitChanges();
 
+                
+
 
         }
     }

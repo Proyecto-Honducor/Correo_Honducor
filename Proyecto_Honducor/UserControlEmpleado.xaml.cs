@@ -24,7 +24,7 @@ namespace Proyecto_Honducor
         public UserControlEmpleado()
         {
             InitializeComponent();
-            
+
         }
 
         private void BtnBuscar_Click(object sender, RoutedEventArgs e)
@@ -33,17 +33,23 @@ namespace Proyecto_Honducor
             var empleado = from u in data.GetTable<Empleado>()
                            select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
             dgEmpleado1.ItemsSource = empleado.ToList();
-            
+
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             //data.Empleado.InsertAllOnSubmit(new Empleado { identidad = txtIdentidad.Text, nombre = txtNombre.Text, apellido = txtApellido.Text, direccion = txtDireccion.Text, telefono = txtTelefono.Text, fechaNac = dateFecha.DisplayDate, estadoCivil = cbEstadoCivil.SelectedItem.ToString(), Cargo = cbCargo.SelectedItem.ToString()});
-            
+
         }
 
         private void DgEmpleado1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
         }
+
+        private void Btnagragarusu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }
