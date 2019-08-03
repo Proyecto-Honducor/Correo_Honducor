@@ -77,9 +77,9 @@ namespace Proyecto_Honducor
                     usc = new UserControlEmpleado();
                     GridMain.Children.Add(usc);
                     break;
-                case "ItemFacturacion":
-                    //usc = new UserControlFacturacion();
-                    //GridMain.Children.Add(usc);
+                case "ItemVentas":
+                    usc = new UserControlVenta();
+                    GridMain.Children.Add(usc);
                     break;
                 case "ItemHistorial":
                    // usc = new UserControlHistorial();
