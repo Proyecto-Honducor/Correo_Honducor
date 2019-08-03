@@ -12,9 +12,11 @@ namespace Proyecto_Honducor
         private static int idlog;
         private static string nomlog;
         private static string cargolog;
+        private static int idempleado;
 
         public static int Idlog { get => idlog; set => idlog = value; }
         public static string Nomlog { get => nomlog; set => nomlog = value; }
         public static string Cargolog { get => cargolog; set => cargolog = value; }
+        public static int Idempleado { get => idempleado; set => idempleado = value; }
     }
 }

@@ -29,5 +29,10 @@ namespace Proyecto_Honducor
         {
 
         }
+
+        private void BtnGuardarT_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

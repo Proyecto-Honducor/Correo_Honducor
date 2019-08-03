@@ -30,7 +30,7 @@
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom" Height="318" Margin="0,0,0,130">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="48,15,38,0">
                     <TextBlock Text="Nombre Usuario" FontSize="25" VerticalAlignment="Center"  Margin="10,10,0,-0.4"/>
-                    <TextBox Name="txtIdentidad" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,7,0,7.6" Foreground="Black"/>
+                    <TextBox Name="txtnombre" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,7,0,7.6" Foreground="Black"/>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center"  Margin="10,15,0,0" >
                     <TextBlock Text="Contraseña       " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0"/>
@@ -38,11 +38,14 @@
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center"  Margin="58,15,21,0" Width="529">
                     <TextBlock Text="Nivel      " FontSize="25" VerticalAlignment="Center"  Margin="10,8,0,7.6" Width="170"/>
-                    <TextBox Name="txtNivel" Width="323" FontSize="25"  VerticalAlignment="Center"  Margin="10,4,0,3.6"  Foreground="Black"/>
+                    <ComboBox Name="txtNivel" Width="323" FontSize="25"  VerticalAlignment="Center"  Margin="10,4,0,3.6"  Foreground="Black">
+                        <ComboBoxItem Content="Administrador"/>
+                        <ComboBoxItem Content="Ususario"/>
+                    </ComboBox>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center"  Margin="10,15,0,0">
                     <TextBlock Text="Empleado        " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0"/>
-                    <ComboBox Name="CmbEmpleado" Width="334" FontSize="25"  VerticalAlignment="Center"  Margin="10,2,0,1.6"  Foreground="Black"/>
+                    <TextBox Name="txtidempleado" IsEnabled="False" Width="334" FontSize="25"  VerticalAlignment="Center"  Margin="10,2,0,1.6"  Foreground="Black"/>
                 </StackPanel>
 
             </StackPanel>
@@ -52,7 +55,7 @@
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="2" Grid.Row="3" VerticalAlignment="Center">
-            <Button Name="BtnAgregar"  Content="Guardar"  Margin="10,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
+            <Button Name="BtnAgregar"  Content="Guardar"  Margin="10,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Click="BtnAgregar_Click"/>
             <Button Name="BtnActualizar"  Content="Actualizar"  Margin="30,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
             <Button x:Name="BtnEliminar"  Content="Eliminar"  Margin="30,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
         </StackPanel>

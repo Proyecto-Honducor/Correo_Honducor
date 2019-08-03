@@ -41,5 +41,9 @@ namespace Proyecto_Honducor
             //data.Empleado.InsertAllOnSubmit(new Empleado { identidad = txtIdentidad.Text, nombre = txtNombre.Text, apellido = txtApellido.Text, direccion = txtDireccion.Text, telefono = txtTelefono.Text, fechaNac = dateFecha.DisplayDate, estadoCivil = cbEstadoCivil.SelectedItem.ToString(), Cargo = cbCargo.SelectedItem.ToString()});
             
         }
-    }
+
+        private void DgEmpleado1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
 }
