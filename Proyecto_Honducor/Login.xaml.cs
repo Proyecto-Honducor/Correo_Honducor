@@ -52,6 +52,7 @@ namespace Proyecto_Honducor
                     if (usuariologeado.contrasenia == txtContrasena.Password)
                     {
                         MessageBox.Show("Logueado con exito");
+                        ClaseGlobal.Idlog=usuariologeado.idUsuario;
                         ClaseGlobal.Nomlog = txtUsuario.Text;
                         ClaseGlobal.Cargolog = usuariologeado.nivel;
                         this.Close();

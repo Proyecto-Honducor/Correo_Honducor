@@ -69,10 +69,15 @@ namespace Proyecto_Honducor
             data.Empleado.InsertOnSubmit(emp);
             data.SubmitChanges();
             dgEmpleado1.ItemsSource = data.Empleado;
+
         }
 
         private void Btnagragarusu_Click(object sender, RoutedEventArgs e)
         {
+            var empleado = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
+
+            ClaseGlobal.Idempleadocreado = empleado.idEmpleado;
+
             Window window = new Window
             {
                 Title = "My User Control, Dialog",
