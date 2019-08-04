@@ -16,13 +16,18 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Background="#90caf9" Height="50" VerticalAlignment="Top" Grid.Row="0">
-            <TextBlock Text="Paquete" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="white" />
+            <TextBlock Text="PAQUETE" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="white" />
             <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" >
                 <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
             </Button>
         </Grid>
         <Grid Grid.Row="2"  Background="White">
-            <StackPanel Orientation="Horizontal"  Grid.Column="0"  Margin="80,20,01,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="295*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="298*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal"  Grid.Column="0"  Margin="80,20,0.2,0" Grid.ColumnSpan="3">
                 <StackPanel Width="550" Height="398" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Descripcion                " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
@@ -42,7 +47,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                         <TextBlock Text="Fecha Entregado       " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
-                        <DatePicker x:Name="DtpFechaEntregado" Width="272" Margin="10,0,0,0" FontSize="20" Foreground="Black" />
+                        <TextBox x:Name="txtFechaEntregado" Width="272" Margin="10,0,0,0" FontSize="20" Foreground="Black" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                         <TextBlock Text="Nombre Cliente          " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
@@ -50,15 +55,15 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                         <TextBlock Text="Categoría                 " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
-                        <ComboBox x:Name="CmbCategoria" IsEditable="True" IsReadOnly="True" Text="Seleccione una opcion" FontSize="20"  Margin="10" Width="272" Foreground="Black"/>
+                        <TextBox x:Name="txtCategoria" FontSize="20"  Margin="10" Width="272" Foreground="Black"/>
                     </StackPanel>
 
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="btnBuscar" Width="300" Content="Buscar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="112,417,790.2,39" FontSize="15" Height="44" Click="BtnBuscar_Click"/>
-            <Button x:Name="btnGuardarT" Width="300" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="480,417,416.2,39" FontSize="15" Height="44" Click="BtnGuardarT_Click"/>
-            <Button x:Name="btnModificar" Width="300" Content="Modificar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="865,417,50.2,39" FontSize="15" Height="44" RenderTransformOrigin="0.504,0.563"/>
-            <DataGrid x:Name="dgEmpleado" HorizontalAlignment="Left" Height="355" Margin="580,29,0,0" VerticalAlignment="Top" Width="600"/>
+            <Button x:Name="btnBuscar" Width="300" Content="Buscar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="118,417,171.6,39" FontSize="15" Height="44" Click="BtnBuscar_Click"/>
+            <Button x:Name="btnGuardarT" Width="300" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="490,417,425.2,39" FontSize="15" Height="44" Click="BtnGuardarT_Click" Grid.ColumnSpan="3"/>
+            <Button x:Name="btnModificar" Width="300" Content="Modificar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="245.707,417,50.2,39" FontSize="15" Height="44" RenderTransformOrigin="0.504,0.563" Grid.Column="2"/>
+            <DataGrid x:Name="dgPaquete" HorizontalAlignment="Left" Height="355" Margin="580,29,0,0" VerticalAlignment="Top" Width="600" Grid.ColumnSpan="3"/>
         </Grid>
     </Grid>
 </UserControl>

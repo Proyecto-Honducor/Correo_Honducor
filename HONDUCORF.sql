@@ -59,10 +59,11 @@ CREATE TABLE Paquete.Paquete
 	direccion TEXT NOT NULL,
 	fechaRecibido DATETIME NOT NULL DEFAULT GETDATE(),
 	fechaEntregado DATETIME,
-	idCliente INT NOT NULL,--FOREING KEY
+	idCliente INT NULL,--FOREING KEY
 	idCategoria INT NOT NULL,--FOREING KEY
 )
 GO
+
 
 CREATE TABLE Paquete.Categoria
 (
@@ -88,8 +89,9 @@ CREATE TABLE Paquete.Venta
 	idVenta INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Paquete_Venta_id PRIMARY KEY CLUSTERED,
 	idEmpleado INT NOT NULL,
 	identidadCliente VARCHAR(15) NOT NULL,
+	idPaquete INT NULL,
 	nombreCompletoCliente NVARCHAR(50) NOT NULL,
-	fechaVenta DATETIME NOT NULL,
+	fechaVenta DATETIME DEFAULT GETDATE() NOT NULL,
 	isv INT NOT NULL,
 )
 GO
@@ -118,11 +120,11 @@ ALTER TABLE Persona.Usuario
 		ON DELETE CASCADE
 GO
 
-ALTER TABLE Paquete.Paquete
-	ADD CONSTRAINT FK_Paquete_Paquete$Pertenece$Persona_Cliente
-		FOREIGN KEY (idCliente) REFERENCES Persona.Cliente(idCliente)
-		ON DELETE CASCADE
-GO
+--ALTER TABLE Paquete.Paquete
+--	ADD CONSTRAINT FK_Paquete_Paquete$Pertenece$Persona_Cliente
+--		FOREIGN KEY (idCliente) REFERENCES Persona.Cliente(idCliente)
+--		ON DELETE CASCADE
+--GO
 
 ALTER TABLE Paquete.Paquete
 	ADD CONSTRAINT FK_Paquete_Paquete$TieneUna$Paquete_Categoria
