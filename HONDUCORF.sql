@@ -150,12 +150,19 @@ ALTER TABLE Paquete.DetalleVenta
 		ON UPDATE NO ACTION
 GO
 
-
+/*
 INSERT INTO Persona.Cargo(cargo)
 VALUES('Administrador'),
 ('Empleado')
 go
 
+INSERT INTO Persona.Empleado(identidad,nombre,apellido,direccion,telefono,fechaNac,sexo,idCargo,estadoCivil)
+VALUES('0318199900710','Alee','Mayorga','Mas alla','97813880','24-06-1997','M',1,'Soltero')
+GO
+
+INSERT INTO Persona.Usuario(nombreUsuario,contrasenia,nivel,idEmpleado)
+VALUES('Alee','Alee','Administrador',1)
+GO
 INSERT INTO Persona.Empleado(identidad,nombre,apellido,direccion,telefono,fechaNac,sexo,idCargo,estadoCivil)
 VALUES('10071999','Danny','Cantarero','Por ahi','96198924','05-06-1999','M',1,'Solito :(')
 GO
@@ -163,7 +170,6 @@ GO
 INSERT INTO Persona.Usuario(nombreUsuario,contrasenia,nivel,idEmpleado)
 VALUES('Danny','danny13','Administrador',1)
 GO
-
 INSERT INTO Persona.Empleado(identidad,nombre,apellido,direccion,telefono,fechaNac,sexo,idCargo,estadoCivil)
 VALUES('16191998','Mario','Argueta','Ave Siempre viva','99560206','11-09-1999','M',1,'Solterito')
 GO
@@ -171,28 +177,27 @@ GO
 INSERT INTO Persona.Usuario(nombreUsuario,contrasenia,nivel,idEmpleado)
 VALUES('Mario','Mario11','Administrador',2)
 GO
+=============================================================================================================
+========================================INSERATAR PAQUETES===================================================
+INSERT INTO Paquete.Categoria(nombreCategoria, descripcion)
+VALUES('Pesado','Paquetes Grandes'),
+	  ('Peque','Paquete Peque')
+go
 
+INSERT INTO Persona.Cliente(nombre, identidad,telefono)
+VALUES('Carmelo','0656562','965622'),
+	  ('Carmela','555666', '95953')
+go
 
-SELECT * FROM Persona.Usuario
+SELECT * FROM Paquete.Paquete
+INSERT INTO Paquete.Paquete(descripcion,noSeguimiento,peso,direccion,idCliente,idCategoria)
+VALUES('Carmelo','15646','15','Los Angeles',1,1),
+	  ('Carmela','2511', '25','New York',2,2)
+go
+
+SELECT * FROM Persona.Empleado
 GO
 
 SELECT * FROM Persona.Cliente
 GO
-
-CREATE PROC SP_RegistrarCliente
-(
-	@identidad VARCHAR(15),
-	@nombre NVARCHAR(25),
-	@apellido NVARCHAR(25),
-	@direccion TEXT, 
-	@telefono VARCHAR(12),
-	@fechaNac DATE,
-	@sexo VARCHAR,
-	@idCargo INT,
-	@estadoCivil VARCHAR(11)
-)
-AS BEGIN
-	INSERT Persona.Empleado VALUES(@identidad,@nombre,@apellido,@direccion,@telefono,@fechaNac,@sexo,@idCargo,@estadoCivil)
-	COMMIT
-END
-GO
+*/
