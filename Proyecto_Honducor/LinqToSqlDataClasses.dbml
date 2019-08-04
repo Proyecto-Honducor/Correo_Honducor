@@ -10,28 +10,12 @@
       <Association Name="Empleado_Usuario" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="Paquete.Paquete" Member="Paquete">
-    <Type Name="Paquete">
-      <Column Name="idPaquete" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="noSeguimiento" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="peso" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="direccion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="fechaRecibido" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="fechaEntregado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Paquete_DetalleVenta" Member="DetalleVenta" ThisKey="idPaquete" OtherKey="idPaquete" Type="DetalleVenta" />
-      <Association Name="Categoria_Paquete" Member="Categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="Paquete.Categoria" Member="Categoria">
     <Type Name="Categoria">
       <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nombreCategoria" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="Categoria_Paquete" Member="Paquete" ThisKey="idCategoria" OtherKey="idCategoria" Type="Paquete" />
-      <Association Name="Categoria_Paquete1" Member="Paquete1" ThisKey="idCategoria" OtherKey="idCategoria" Type="Paquete1" />
     </Type>
   </Table>
   <Table Name="Paquete.DetalleVenta" Member="DetalleVenta">
@@ -42,24 +26,8 @@
       <Column Name="precioUnidad" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
       <Column Name="cantidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="total" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
-      <Association Name="Paquete_DetalleVenta" Member="Paquete" ThisKey="idPaquete" OtherKey="idPaquete" Type="Paquete" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Paquete1_DetalleVenta" Member="Paquete1" ThisKey="idPaquete" OtherKey="idPaquete" Type="Paquete1" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Venta_DetalleVenta" Member="Venta" ThisKey="idVenta" OtherKey="idVenta" Type="Venta" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="Paquete.Paquete" Member="Paquete1">
-    <Type Name="Paquete1">
-      <Column Name="idPaquete" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="noSeguimiento" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="peso" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="direccion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="fechaRecibido" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="fechaEntregado" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Paquete1_DetalleVenta" Member="DetalleVenta" ThisKey="idPaquete" OtherKey="idPaquete" Type="DetalleVenta" />
-      <Association Name="Categoria_Paquete1" Member="Categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Paquete_DetalleVenta" Member="Paquete" ThisKey="idPaquete" OtherKey="idPaquete" Type="Paquete" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="Paquete.Venta" Member="Venta">
@@ -116,6 +84,21 @@
       <Column Name="nivel" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="idEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Empleado_Usuario1" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Paquete.Paquete" Member="Paquete">
+    <Type Name="Paquete">
+      <Column Name="idPaquete" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="noSeguimiento" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="peso" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="fechaRecibido" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="fechaEntregado" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Paquete_DetalleVenta" Member="DetalleVenta" ThisKey="idPaquete" OtherKey="idPaquete" Type="DetalleVenta" />
+      <Association Name="Categoria_Paquete" Member="Categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>

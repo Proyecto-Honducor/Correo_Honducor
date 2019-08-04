@@ -49,13 +49,15 @@ namespace Proyecto_Honducor
                 }
                 else
                 {
-                if (usuariologeado.contrasenia == txtContrasena.Password)
-                {
-                    MessageBox.Show("Logueado con exito");
-                    ClaseGlobal.Nomlog = txtUsuario.Text;
-                    ClaseGlobal.Cargolog = usuariologeado.nivel;
-                    this.Close();
-                }
+                    if (usuariologeado.contrasenia == txtContrasena.Password)
+                    {
+                        MessageBox.Show("Logueado con exito");
+                        ClaseGlobal.Nomlog = txtUsuario.Text;
+                        ClaseGlobal.Cargolog = usuariologeado.nivel;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Usuario o Contraseña incorrect@s");
                 }
                
 

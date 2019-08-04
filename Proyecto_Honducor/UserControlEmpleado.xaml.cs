@@ -29,14 +29,27 @@ namespace Proyecto_Honducor
 
             data = new LinqToSqlDataClassesDataContext(connectionString);
 
-        }
-
-        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
-        {
             data = new LinqToSqlDataClassesDataContext();
             var empleado = from u in data.GetTable<Empleado>()
                            select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
             dgEmpleado1.ItemsSource = empleado.ToList();
+        }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtIdentidad.Text != "")
+            {
+                data = new LinqToSqlDataClassesDataContext();
+                var empleado = from u in data.GetTable<Empleado>()
+                               where u.identidad.Equals(txtIdentidad.Text)
+                               select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
+                if(empleado==null)
+                { MessageBox.Show("no existe"); }
+                dgEmpleado1.ItemsSource = empleado.ToList();
+            }
+            else
+                MessageBox.Show("ingrese un numero de identidad"); txtIdentidad.Focus();
+
             
         }
 
@@ -73,6 +86,44 @@ namespace Proyecto_Honducor
 
             window.ShowDialog();
 
+        }
+
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtIdentidad.Text != "")
+            {
+                var empleado = (from emp in data.Empleado
+                               where emp.identidad == txtIdentidad.Text
+                               select emp).First();
+                //var empleado = data.Empleado.First(emp => emp.nombre.Equals(txtNombre.Text));
+                if (empleado != null)
+                {
+                    var eliminar = from elim in data.Empleado
+                                   where elim.identidad.Equals(txtIdentidad.Text)
+                                   select elim;
+                    foreach (var detalles in eliminar)
+                    {
+                        data.Empleado.DeleteOnSubmit(detalles);
+                    }
+                    try
+                    {
+                        data.SubmitChanges();
+                        MessageBox.Show("Registro eliminado con exito");
+                        dgEmpleado1.ItemsSource = data.Empleado;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+                else
+                    MessageBox.Show("Para eliminar escriba un numero de identidad"); txtIdentidad.Focus();
+            }
+            else
+                MessageBox.Show("No existe registo con ese nombre");
+               
+            
         }
     }
 }
