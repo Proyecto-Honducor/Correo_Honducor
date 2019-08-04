@@ -29,19 +29,19 @@
 
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom" Height="318" Margin="0,0,0,130">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="48,15,38,0">
-                    <TextBlock Text="Identidad      " FontSize="25" VerticalAlignment="Center"  Margin="10,10,0,-0.4"/>
+                    <TextBlock Text="Identidad      " FontSize="25" VerticalAlignment="Center"  Margin="10,10,0,-0.4" Foreground="Black"/>
                     <TextBox Name="txtIdentidad" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,7,0,7.6" Foreground="Black"/>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center"  Margin="10,15,0,0" >
-                    <TextBlock Text="Nombre       " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0"/>
+                    <TextBlock Text="Nombre       " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0" Foreground="Black"/>
                     <TextBox Name="txtNombre" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,0,0,0" Foreground="Black"/>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center"  Margin="10,15,0,0">
-                    <TextBlock Text="Apellido       " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0"/>
+                    <TextBlock Text="Apellido       " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0" Foreground="Black"/>
                     <TextBox Name="txtApellido" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,0,0,0"  Foreground="Black"/>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center"  Margin="10,15,0,0">
-                    <TextBlock Text="Teléfono        " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0"/>
+                    <TextBlock Text="Teléfono        " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0" Foreground="Black"/>
                     <TextBox Name="txtNumeroTel" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,0,0,0"  Foreground="Black"/>
                 </StackPanel>
 

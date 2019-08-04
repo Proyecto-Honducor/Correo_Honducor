@@ -16,8 +16,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Background="#90caf9" Height="50" VerticalAlignment="Top" Grid.Row="0">
-            <TextBlock Text="EMPLEADOS" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="white" />
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" >
+            <TextBlock Text="Empleados" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="white" />
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" Click="Button_Click">
                 <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
             </Button>
         </Grid>

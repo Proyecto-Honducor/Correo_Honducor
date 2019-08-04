@@ -24,5 +24,10 @@ namespace Proyecto_Honducor
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as Grid).Children.Remove(this);
+        }
     }
 }

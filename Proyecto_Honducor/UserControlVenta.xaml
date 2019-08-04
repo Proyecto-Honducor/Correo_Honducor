@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <Grid Background="#90caf9" Height="70" VerticalAlignment="Top" Grid.Row="0" Margin="0,0,0.2,0" >
             <TextBlock Text="Venta" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="White" />
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,12"  Background="#5d99c6"  BorderBrush="#2A2D34" RenderTransformOrigin="0.489,-0.591" Height="46" >
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,12"  Background="#5d99c6"  BorderBrush="#2A2D34" RenderTransformOrigin="0.489,-0.591" Height="46" Click="Button_Click">
                 <materialDesign:PackIcon Kind="Close" Height="35" Width="35" />
             </Button>
 
@@ -26,21 +26,21 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="100" Margin="0,0,0,10.2">
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="100" Margin="8,22,99,-1">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Cliente      " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBlock Text="   Cliente      " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtCliente" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
-                <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Empleado  " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="27,0">
+                    <TextBlock Text="  Empleado       " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtEmpleado" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="10">
-                <Image Source="Imagen\honducor.png" Height="100" VerticalAlignment="Top" Margin="10,0,10.2,0" />
+                <Image Source="Imagen\honducor.png" Height="100" VerticalAlignment="Top" Margin="0,0,10,0" HorizontalAlignment="Right" Width="573" />
             </StackPanel>
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="298" Stroke="Black" VerticalAlignment="Top" Width="1199" Grid.Row="3" Margin="8,0,0,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="298" Stroke="White" VerticalAlignment="Top" Width="1199" Grid.Row="3" Margin="8,0,0,0"/>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="550"/>
@@ -56,8 +56,8 @@
                     <TextBox x:Name="txtPrecio" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="IVS                 " FontSize="20" VerticalAlignment="Center"/>
-                    <TextBox x:Name="txtIvs" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
+                    <TextBlock Text="ISV                 " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBox x:Name="txtIsv" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
                     <TextBlock Text="Total              " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>

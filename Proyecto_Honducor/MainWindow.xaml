@@ -31,7 +31,11 @@
     </Window.Triggers>
     <Grid Background="#ffffff">
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="644" Width="1225" Margin="0,0,0,81">
-            <Image Source="Imagen\honducor.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500" />
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+            <Image Source="Imagen\honducor.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500" Margin="362,99,363,45" Height="500" />
         </Grid>
         <Grid Height="81" VerticalAlignment="Bottom"  >
             <Grid.Background>
@@ -84,44 +88,37 @@
                     <Image Source="Imagen\honducor.png" Height="131" VerticalAlignment="Stretch" RenderTransformOrigin="0.494,0.308" Margin="0,36,0,10"/>
 
                 </Grid>
-                <ListView x:Name="ListViewMenu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Center" Height="350" Margin="0,0,0.4,0">
-                    <ListViewItem x:Name="ItemEmpleados" Height="55"  Background="#5d99c6">
+                <ListView x:Name="ListViewMenu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Center" Height="528">
+                    <ListViewItem x:Name="ItemEmpleados" Height="82"  Background="#5d99c6">
                         <StackPanel Orientation="Horizontal" Background="#ffffff" >
                             <materialDesign:PackIcon Kind="HumanHandsdown" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
                             <TextBlock Text="Empleados" VerticalAlignment="Center" Margin="20 10" Width="75" Foreground="#406e90" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemVentas" Height="55">
+                    <ListViewItem x:Name="ItemCliente" Height="82">
                         <StackPanel Orientation="Horizontal" Background="White">
+                            <materialDesign:PackIcon Kind="Person" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Cliente" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemPaquete" Height="82">
+                        <StackPanel  Orientation="Horizontal" Background="White">
+                            <materialDesign:PackIcon Kind="PackageVariant" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Paquete" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemVentas" Height="82">
+                        <StackPanel  Orientation="Horizontal" Background="White">
                             <materialDesign:PackIcon Kind="Coin" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
                             <TextBlock Text="Ventas" VerticalAlignment="Center" Margin="20 10"  Width="75" Foreground="#406e90"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemHistorial" Height="55">
+                    <ListViewItem x:Name="ItemReporte" Height="82">
                         <StackPanel  Orientation="Horizontal" Background="White">
-                            <materialDesign:PackIcon Kind="History" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
-                            <TextBlock Text="Paquete" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
+                            <materialDesign:PackIcon Kind="FileReport" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
+                            <TextBlock Text="Reportes" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemCargo" Height="55">
-                        <StackPanel  Orientation="Horizontal" Background="White">
-                            <materialDesign:PackIcon Kind="AssignmentInd" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
-                            <TextBlock Text="Cargo" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemCategoria" Height="55">
-                        <StackPanel  Orientation="Horizontal" Background="White">
-                            <materialDesign:PackIcon Kind="Class" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
-                            <TextBlock Text="Categoria" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemClientes" Height="55">
-                        <StackPanel  Orientation="Horizontal" Background="White">
-                            <materialDesign:PackIcon Kind="Face" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
-                            <TextBlock Text="Clientes" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
-                        </StackPanel>
-                    </ListViewItem>
-
                 </ListView>
             </StackPanel>
         </Grid>
