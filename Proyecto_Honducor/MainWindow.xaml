@@ -50,7 +50,7 @@
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
             </Grid.Effect>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Label x:Name="lblusu" Content="usuario" FontSize="17" Foreground="#406e90" Margin="10,2,0,34"/>
+                <Label x:Name="lblusu" Content="usuario" FontSize="17" Foreground="#406e90" Margin="10,19,0,17.4"/>
                 <Label x:Name="lblcargo" Content="cargo" FontSize="16" Foreground="#406e90" Margin="20,18,0,20"/>
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="Black">
                     <StackPanel Width="150">
@@ -100,7 +100,7 @@
                     <ListViewItem x:Name="ItemHistorial" Height="55">
                         <StackPanel  Orientation="Horizontal" Background="White">
                             <materialDesign:PackIcon Kind="History" Height="20" Width="20" Margin="10" Foreground="#406e90"/>
-                            <TextBlock Text="Historial" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
+                            <TextBlock Text="Paquete" VerticalAlignment="Center"  Margin="20 10"  Width="75" Foreground="#406e90"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemCargo" Height="55">

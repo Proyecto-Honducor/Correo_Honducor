@@ -92,6 +92,12 @@ CREATE TABLE Paquete.Categoria
 )
 GO
 
+INSERT INTO Paquete.Categoria (nombreCategoria, descripcion)
+	VALUES ('PEQUEÑO','PEQUEÑITO')
+SELECT * FROM Paquete.Paquete
+
+INSERT INTO Paquete.Paquete(descripcion, noSeguimiento,peso,direccion,fechaEntregado,idCliente,idCategoria)
+VALUES('ES Culo',2,150,'ALLA','1997-05-15',1,1)
 
 
 CREATE TABLE Persona.Cliente
@@ -112,12 +118,12 @@ CREATE TABLE Paquete.Venta
 	isv INT NOT NULL,
 )
 GO
---insert into Persona.Cliente (nombre, identidad, telefono)
---values('Carlos', '0318-1999-00710', '96522856')
---insert into Paquete.Venta (idEmpleado, idCliente, fechaVenta, isv)
---values(03,01,2019-05-12,15)
---select * from Paquete.Venta
-
+insert into Persona.Cliente (nombre, identidad, telefono)
+values('Carlos', '0318-1999-00710', '96522856')
+insert into Paquete.Venta (idEmpleado,identidadCliente, nombreCompletoCliente, isv)
+values(01,'123','El Brayan',15)
+select * from Paquete.Venta
+select * from Persona.Cliente
 CREATE TABLE Paquete.DetalleVenta
 (
 	idDetalleVenta INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Paquete_DetalleVenta_id PRIMARY KEY CLUSTERED,
