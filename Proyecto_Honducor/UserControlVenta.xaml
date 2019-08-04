@@ -12,16 +12,17 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="120"/>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="316"/>
+            <RowDefinition Height="126.4"/>
         </Grid.RowDefinitions>
-        <Grid Background="#90caf9" Height="70" VerticalAlignment="Top" Grid.Row="0" Margin="0,0,0.2,0" >
+        <Grid Background="#90caf9" Height="70" VerticalAlignment="Top" Grid.Row="0" Margin="0,8,-0.2,0" Grid.RowSpan="2" >
             <TextBlock Text="Venta" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="White" />
             <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,12"  Background="#5d99c6"  BorderBrush="#2A2D34" RenderTransformOrigin="0.489,-0.591" Height="46" >
                 <materialDesign:PackIcon Kind="Close" Height="35" Width="35" />
             </Button>
 
         </Grid>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Margin="0,0.2,-0.2,0.6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -40,13 +41,13 @@
                 <Image Source="Imagen\honducor.png" Height="100" VerticalAlignment="Top" Margin="10,0,10.2,0" />
             </StackPanel>
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="298" Stroke="Black" VerticalAlignment="Top" Width="1199" Grid.Row="3" Margin="8,0,0,0"/>
-        <Grid Grid.Row="3">
+        <Rectangle HorizontalAlignment="Left" Height="298" Stroke="Black" VerticalAlignment="Top" Width="1199" Grid.Row="3" Margin="8,10.4,0,0"/>
+        <Grid Grid.Row="3" Margin="0,10.4,-0.2,56" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="550"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="281" Margin="0,10,0.4,109">
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="281" Margin="0,16,0.4,54" RenderTransformOrigin="0.513,0.679">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
                     <TextBlock Text="Cantidad         " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtcantidad" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
@@ -63,18 +64,19 @@
                     <TextBlock Text="Total              " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtTotal" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Height="68" HorizontalAlignment="Center" Margin="46,0,53.4,0" Width="451" RenderTransformOrigin="1.132,0.856">
-                    <Button x:Name="txtGenerar" FontSize="20" Content="Generar" Margin="90,14,20,14" Width="126" Height="40" Background="#5d99c6"  BorderBrush="#2A2D34"/>
-                    <Button x:Name="txtHistorial" FontSize="20" Content="Historial" Margin="30,9,20,8.6"  Width="126" Height="40"  Background="#5d99c6"  BorderBrush="#2A2D34"/>
-                </StackPanel>
+
             </StackPanel>
             <Grid  Grid.Column="1">
-                <StackPanel Margin="15">
+                <StackPanel Margin="15,15,15.4,91">
                     <DataGrid x:Name="dtDetalleVenta" Height="271" Margin="10,0,10.2,0"></DataGrid>
                 </StackPanel>
 
             </Grid>
         </Grid>
-
+        <Grid Grid.Row="5">
+            <StackPanel Orientation="Horizontal" Height="68" HorizontalAlignment="Center" Margin="63,29,101.8,29.4" Width="1060" RenderTransformOrigin="1.132,0.856">
+                <Button x:Name="txtGenerar" FontSize="20" Content="Generar Factura" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Margin="390,1,0,0"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
