@@ -90,5 +90,10 @@ namespace Proyecto_Honducor
             Txtnoseguimiento.Text = " ";
             txtPeso.Text = " ";
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

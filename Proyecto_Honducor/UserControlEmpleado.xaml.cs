@@ -138,5 +138,10 @@ namespace Proyecto_Honducor
             txtTelefono.Text = " ";
             dateFecha.Text = " ";
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
