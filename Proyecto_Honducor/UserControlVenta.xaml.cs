@@ -27,7 +27,7 @@ namespace Proyecto_Honducor
             InitializeComponent();
             string connectionString = ConfigurationManager.ConnectionStrings["Proyecto_Honducor.Properties.Settings.HonducorConnectionString"].ConnectionString;
 
-            data = new LinqToSqlDataClassesDataContext(connectionString);
+            data = new LinqToSqlDataClassesDataContext(connectionString);//
 
             data = new LinqToSqlDataClassesDataContext();
             var venta = from u in data.GetTable<Venta>()
