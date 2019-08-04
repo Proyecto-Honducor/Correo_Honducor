@@ -44,7 +44,7 @@ namespace Proyecto_Honducor
                                where u.identidad.Contains(txtIdentidad.Text)
                                select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
                 if(empleado==null)
-                { MessageBox.Show("no existe"); }
+                { MessageBox.Show("no existe"); }//
                 dgEmpleado1.ItemsSource = empleado.ToList();
             }
             else
