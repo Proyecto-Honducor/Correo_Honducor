@@ -57,5 +57,22 @@ namespace Proyecto_Honducor
             data.SubmitChanges();
             dgEmpleado1.ItemsSource = data.Empleado;
         }
+
+        private void Btnagragarusu_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new Window
+            {
+                Title = "My User Control, Dialog",
+                Height = 500,
+                Width = 1250,
+                ResizeMode = ResizeMode.NoResize,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                WindowStyle = WindowStyle.None,
+                Content = new UserControlUsuario()
+            };
+
+            window.ShowDialog();
+
+        }
     }
 }
