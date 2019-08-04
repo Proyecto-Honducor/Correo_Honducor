@@ -57,7 +57,7 @@
                     <TextBox x:Name="txtPrecio" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="IVS                 " FontSize="20" VerticalAlignment="Center"/>
+                    <TextBlock Text="ISV                 " FontSize="20" VerticalAlignment="Center"/>
                     <TextBox x:Name="txtIvs" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
