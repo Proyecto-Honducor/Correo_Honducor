@@ -82,8 +82,8 @@ namespace Proyecto_Honducor
                     GridMain.Children.Add(usc);
                     break;
                 case "ItemHistorial":
-                   // usc = new UserControlHistorial();
-                    //GridMain.Children.Add(usc);
+                    usc = new UserControlPaquete();
+                    GridMain.Children.Add(usc);
                     break;
                 case "ItemCargo":
                     //usc = new UserControlCarg();

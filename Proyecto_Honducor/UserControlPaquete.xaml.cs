@@ -34,7 +34,7 @@ namespace Proyecto_Honducor
         {
             data = new LinqToSqlDataClassesDataContext();
             var paquete = from pa in data.GetTable<Paquete>()
-                          select new { pa.idPaquete, pa.descripcion, pa.noSeguimiento, pa.peso, pa.direccion, pa.fechaRecibido, pa.fechaEntregado, pa.idCliente, pa.nombreCategoria };
+                          select new { pa.idPaquete, pa.descripcion, pa.noSeguimiento, pa.peso, pa.direccion, pa.fechaRecibido, pa.fechaEntregado, pa.idCliente, pa.idCategoria };
             dgPaquete.ItemsSource = paquete.ToList();
         }
         private void BtnGuardarT_Click(object sender, RoutedEventArgs e)
@@ -46,7 +46,12 @@ namespace Proyecto_Honducor
             paq.peso = Convert.ToInt32(txtPeso.Text);
             paq.direccion = Txtdireccion.Text;
             paq.fechaEntregado = Convert.ToDateTime(txtFechaEntregado.Text);
-            paq.nombreCategoria = txtCategoria.Text;
+            paq.idCategoria = Convert.ToInt32(txtCategoria.Text);
+
+            data.Paquete.InsertOnSubmit(paq);
+            data.SubmitChanges();
+            dgPaquete.ItemsSource = data.Paquete;
+            MessageBox.Show("REGISTRO GUARDADO CORRECTAMENTE");
             
         }
     }
