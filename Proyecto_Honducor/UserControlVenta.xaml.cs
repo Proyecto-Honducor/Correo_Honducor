@@ -45,6 +45,7 @@ namespace Proyecto_Honducor
             ven.identidadCliente = txtIdenCliente1.Text;
             ven.idPaquete = Convert.ToInt32(txtidPaquete.Text);
             ven.nombreCompletoCliente = txtCliente.Text;
+           // ven.fechaVenta = Convert.ToDateTime(txtfechaventa.text);
             ven.isv = Convert.ToDecimal(txtIvs.Text);
 
             data.Venta.InsertOnSubmit(ven);
