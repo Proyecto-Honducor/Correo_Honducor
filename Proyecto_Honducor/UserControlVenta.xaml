@@ -41,7 +41,6 @@
                 <Image Source="Imagen\honducor.png" Height="100" VerticalAlignment="Top" Margin="10,0,10.2,0" />
             </StackPanel>
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="328" Stroke="Black" VerticalAlignment="Top" Width="1199" Grid.Row="3" Margin="8,10.4,0,0" Grid.RowSpan="2"/>
         <Grid Grid.Row="2" Margin="30,103.2,-30.2,84" Grid.RowSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="550"/>

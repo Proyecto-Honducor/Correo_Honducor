@@ -20,6 +20,7 @@ namespace Proyecto_Honducor
     /// </summary>
     public partial class UserControlVenta : UserControl
     {
+        
         private LinqToSqlDataClassesDataContext data;
         public UserControlVenta()
         {
@@ -32,6 +33,7 @@ namespace Proyecto_Honducor
             var venta = from u in data.GetTable<Venta>()
                            select new { u.idEmpleado, u.identidadCliente, u.idPaquete, u.nombreCompletoCliente, u.fechaVenta, u.isv};
             dtDetalleVenta.ItemsSource = venta.ToList();
+            txtEmpleado.Text = ClaseGlobal.Idempleado.ToString();
         }
 
         private void TxtGenerar_Click(object sender, RoutedEventArgs e)
