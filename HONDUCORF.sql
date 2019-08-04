@@ -92,7 +92,7 @@ CREATE TABLE Paquete.Venta
 	idPaquete INT NULL,
 	nombreCompletoCliente NVARCHAR(50) NOT NULL,
 	fechaVenta DATETIME DEFAULT GETDATE() NOT NULL,
-	isv INT NOT NULL,
+	isv DECIMAL NOT NULL
 )
 GO
 
@@ -150,6 +150,10 @@ ALTER TABLE Paquete.DetalleVenta
 		ON UPDATE NO ACTION
 GO
 
+
+SELECT * FROM Paquete.Paquete
+GO
+
 /*
 INSERT INTO Persona.Cargo(cargo)
 VALUES('Administrador'),
@@ -201,3 +205,10 @@ GO
 SELECT * FROM Persona.Cliente
 GO
 */
+
+INSERT INTO Paquete.Venta(idEmpleado,identidadCliente,idPaquete,nombreCompletoCliente,isv)
+VALUES(1,'1007199',1,'Mario Rudy Mayorga',0.15)
+GO
+
+SELECT * FROM Paquete.Venta
+GO
