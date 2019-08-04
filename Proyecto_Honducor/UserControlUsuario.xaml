@@ -11,10 +11,15 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="500"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="450"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <StackPanel Margin="5">
+                <Button x:Name="btnLimpiar" Content="Limpiar" Background="#5d99c6"  BorderBrush="#2A2D34" Height="40" RenderTransformOrigin="0.993,0.507" Margin="1066,0,48.4,0"/>
+            </StackPanel>
+        </Grid>
         <Grid Background="#90caf9" Height="50" VerticalAlignment="Bottom" Grid.Row="0">
             <TextBlock Text="Clientes" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="white" />
             <Button x:Name="btnsalir" HorizontalAlignment="Right" Margin="0,9,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" Height="Auto" Click="Btnsalir_Click">
