@@ -22,7 +22,7 @@
             </Button>
         </Grid>
         <Grid Grid.Row="2"  Background="White">
-            <StackPanel Orientation="Horizontal"  Grid.Column="0"  Margin="80,0,0,0">
+            <StackPanel Orientation="Horizontal"  Grid.Column="0"  Margin="80,20,0,0">
                 <StackPanel Width="550" Height="398" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Descripcion                " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
