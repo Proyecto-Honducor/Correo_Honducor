@@ -57,5 +57,10 @@ namespace Proyecto_Honducor
             data.SubmitChanges();
             dgEmpleado1.ItemsSource = data.Empleado;
         }
+
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
