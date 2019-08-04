@@ -195,7 +195,7 @@ VALUES('Carmelo','15646','15','Los Angeles',1,1),
 	  ('Carmela','2511', '25','New York',2,2)
 go
 
-SELECT * FROM Persona.Empleado
+SELECT * FROM Persona.Usuario
 GO
 
 SELECT * FROM Persona.Cliente
