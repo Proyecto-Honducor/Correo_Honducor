@@ -41,7 +41,7 @@ namespace Proyecto_Honducor
             {
                 data = new LinqToSqlDataClassesDataContext();
                 var empleado = from u in data.GetTable<Empleado>()
-                               where u.identidad.Contains(txtIdentidad.Text)
+                               where u.identidad.Equals(txtIdentidad.Text)
                                select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
                 if(empleado==null)
                 { MessageBox.Show("no existe"); }
@@ -50,7 +50,7 @@ namespace Proyecto_Honducor
             else
                 MessageBox.Show("ingrese un numero de identidad"); txtIdentidad.Focus();
 
-
+            
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
@@ -69,15 +69,10 @@ namespace Proyecto_Honducor
             data.Empleado.InsertOnSubmit(emp);
             data.SubmitChanges();
             dgEmpleado1.ItemsSource = data.Empleado;
-
         }
 
         private void Btnagragarusu_Click(object sender, RoutedEventArgs e)
         {
-            var empleado = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
-
-            ClaseGlobal.Idempleadocreado = empleado.idEmpleado;
-
             Window window = new Window
             {
                 Title = "My User Control, Dialog",
@@ -99,7 +94,7 @@ namespace Proyecto_Honducor
             {
                 var empleado = (from emp in data.Empleado
                                where emp.identidad == txtIdentidad.Text
-                               select emp).FirstOrDefault();
+                               select emp).First();
                 //var empleado = data.Empleado.First(emp => emp.nombre.Equals(txtNombre.Text));
                 if (empleado != null)
                 {
@@ -131,9 +126,17 @@ namespace Proyecto_Honducor
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-            (this.Parent as Grid).Children.Remove(this);
+            txtIdentidad.Text = " ";
+            txtNombre.Text = " ";
+            txtApellido.Text = " ";
+            txtDireccion.Text = " ";
+            txtCargo.Text = " ";
+            cbSexo.ItemsSource = default;
+            cbEstadoCivil.ItemsSource = default;
+            txtTelefono.Text = " ";
+            dateFecha.Text = " ";
         }
     }
 }

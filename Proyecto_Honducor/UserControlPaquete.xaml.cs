@@ -41,7 +41,7 @@ namespace Proyecto_Honducor
             {
                 data = new LinqToSqlDataClassesDataContext();
                 var paquete = from pa in data.GetTable<Paquete>()
-                              where pa.noSeguimiento.Contains(Txtnoseguimiento.Text)
+                              where pa.noSeguimiento.Equals(Txtnoseguimiento.Text)
                               select new { pa.idPaquete, pa.descripcion, pa.noSeguimiento, pa.peso, pa.direccion, pa.fechaRecibido, pa.fechaEntregado, pa.idCliente, pa.idCategoria };
                 dgPaquete.ItemsSource = paquete.ToList();
                 //var paquete = data.Paquete.First(paq => paq.noSeguimiento.Equals(Txtnoseguimiento.Text));
@@ -79,9 +79,16 @@ namespace Proyecto_Honducor
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-            (this.Parent as Grid).Children.Remove(this);
+            txtCategoria.Text = " ";
+            TxtCliente.Text = " ";
+            txtDescripcion.Text = " ";
+            Txtdireccion.Text = " ";
+            txtfechaderecibo.Text = " ";
+            txtFechaEntregado.Text = " ";
+            Txtnoseguimiento.Text = " ";
+            txtPeso.Text = " ";
         }
     }
 }

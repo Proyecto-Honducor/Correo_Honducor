@@ -11,7 +11,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="500"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -21,13 +21,18 @@
                 <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
             </Button>
         </Grid>
-        <Grid Grid.Row="1" Margin="0,0,0,46" Grid.RowSpan="2" >
+        <Grid Grid.Row="1">
+            <StackPanel Margin="5">
+                <Button x:Name="btnLimpiar" Content="Limpiar" Background="#5d99c6"  BorderBrush="#2A2D34" Height="40" RenderTransformOrigin="0.993,0.507" Margin="1088,0,11.8,0" Click="BtnLimpiar_Click"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Margin="0,0.4,0.2,88.2" Grid.RowSpan="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" VerticalAlignment="Bottom" Height="318" Margin="0,0,0,130">
+            <StackPanel Grid.Column="0" VerticalAlignment="Bottom" Height="367" Margin="0,-36,0,81.2">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="48,15,38,0">
                     <TextBlock Text="Identidad      " FontSize="25" VerticalAlignment="Center"  Margin="10,10,0,-0.4" Foreground="Black"/>
                     <TextBox Name="txtIdentidad" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,7,0,7.6" Foreground="Black"/>
@@ -44,16 +49,14 @@
                     <TextBlock Text="Teléfono        " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0" Foreground="Black"/>
                     <TextBox Name="txtNumeroTel" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,0,0,0"  Foreground="Black"/>
                 </StackPanel>
-
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="362" Margin="0,52,0,86">
                 <DataGrid Height="328" Margin="0,0,28,0"></DataGrid>
-
             </StackPanel>
         </Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="2" Grid.Row="3" VerticalAlignment="Center">
-            <Button Name="BtnAgregar"  Content="Guardar"  Margin="10,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
-            <Button Name="BtnActualizar"  Content="Actualizar"  Margin="30,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="123,263,123.2,-138" Grid.Row="2" VerticalAlignment="Center" Height="375" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+            <Button x:Name="BtnAgregar"  Content="Guardar"  Margin="10,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
+            <Button x:Name="BtnActualizar"  Content="Actualizar"  Margin="30,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
             <Button x:Name="BtnEliminar"  Content="Eliminar"  Margin="30,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
         </StackPanel>
 
