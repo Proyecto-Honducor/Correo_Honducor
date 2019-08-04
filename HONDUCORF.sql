@@ -58,7 +58,7 @@ CREATE TABLE Paquete.Paquete
 	peso DECIMAL NOT NULL,
 	direccion TEXT NOT NULL,
 	fechaRecibido DATETIME NOT NULL DEFAULT GETDATE(),
-	fechaEntregado DATETIME,
+	fechaEntregado DATE,
 	idCliente INT NULL,--FOREING KEY
 	idCategoria INT NOT NULL,--FOREING KEY
 )
@@ -176,7 +176,7 @@ GO
 SELECT * FROM Persona.Usuario
 GO
 
-SELECT * FROM Persona.Cargo
+SELECT * FROM Persona.Cliente
 GO
 
 CREATE PROC SP_RegistrarCliente
