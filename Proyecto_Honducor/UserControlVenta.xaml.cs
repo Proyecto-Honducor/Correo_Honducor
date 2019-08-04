@@ -45,12 +45,16 @@ namespace Proyecto_Honducor
             ven.identidadCliente = txtIdenCliente1.Text;
             ven.idPaquete = Convert.ToInt32(txtidPaquete.Text);
             ven.nombreCompletoCliente = txtCliente.Text;
-           // ven.fechaVenta = Convert.ToDateTime(txtfechaventa.text);
+            ven.fechaVenta = Convert.ToDateTime(txtfechaventa.Text);
             ven.isv = Convert.ToDecimal(txtIvs.Text);
 
             data.Venta.InsertOnSubmit(ven);
             data.SubmitChanges();
-            dtDetalleVenta.ItemsSource = data.Empleado;
+
+            DetalleVenta dt = new DetalleVenta();
+            dt.idPaquete = Convert.ToInt32(txtidPaquete.Text);
+            dt.idVenta=
+            dtDetalleVenta.ItemsSource = data.Venta;
         }
     }
 }

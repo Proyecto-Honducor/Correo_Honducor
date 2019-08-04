@@ -28,6 +28,7 @@ namespace Proyecto_Honducor
             string connectionString = ConfigurationManager.ConnectionStrings["Proyecto_Honducor.Properties.Settings.HonducorConnectionString"].ConnectionString;
 
             datacontext = new LinqToSqlDataClassesDataContext(connectionString);
+            txtidempleado.Text = ClaseGlobal.Idempleadocreado.ToString();
         }
 
         private void Btnsalir_Click(object sender, RoutedEventArgs e)

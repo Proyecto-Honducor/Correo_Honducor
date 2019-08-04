@@ -73,19 +73,28 @@ namespace Proyecto_Honducor
 
         private void Btnagragarusu_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new Window
+            if (txtIdentidad.Text == "")
             {
-                Title = "My User Control, Dialog",
-                Height = 500,
-                Width = 1250,
-                ResizeMode = ResizeMode.NoResize,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                WindowStyle = WindowStyle.None,
-                Content = new UserControlUsuario()
-            };
+                var usuariologeado = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
+                if (usuariologeado.identidad != null)
+                {
+                    ClaseGlobal.Idempleadocreado = usuariologeado.idEmpleado;
+                    Window window = new Window
+                    {
+                        Title = "My User Control, Dialog",
+                        Height = 500,
+                        Width = 1250,
+                        ResizeMode = ResizeMode.NoResize,
+                        WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                        WindowStyle = WindowStyle.None,
+                        Content = new UserControlUsuario()
+                    };
 
-            window.ShowDialog();
-
+                    window.ShowDialog();
+                }
+            }
+            else
+                MessageBox.Show("debe ingresar una identidad de un usuario valido");
         }
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
