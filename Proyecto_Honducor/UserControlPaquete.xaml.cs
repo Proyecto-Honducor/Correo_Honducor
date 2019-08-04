@@ -41,7 +41,7 @@ namespace Proyecto_Honducor
             {
                 data = new LinqToSqlDataClassesDataContext();
                 var paquete = from pa in data.GetTable<Paquete>()
-                              where pa.noSeguimiento.Equals(Txtnoseguimiento.Text)
+                              where pa.noSeguimiento.Contains(Txtnoseguimiento.Text)
                               select new { pa.idPaquete, pa.descripcion, pa.noSeguimiento, pa.peso, pa.direccion, pa.fechaRecibido, pa.fechaEntregado, pa.idCliente, pa.idCategoria };
                 dgPaquete.ItemsSource = paquete.ToList();
                 //var paquete = data.Paquete.First(paq => paq.noSeguimiento.Equals(Txtnoseguimiento.Text));

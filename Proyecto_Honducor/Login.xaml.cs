@@ -40,7 +40,7 @@ namespace Proyecto_Honducor
         {
             try
             {
-                var usuariologeado = dataContext.Usuario.First(usu => usu.nombreUsuario.Equals(txtUsuario.Text));
+                var usuariologeado = dataContext.Usuario.FirstOrDefault(usu => usu.nombreUsuario.Equals(txtUsuario.Text));
                 if (usuariologeado == null)
                 {
                     MessageBox.Show("ingrese un usuario valido");
