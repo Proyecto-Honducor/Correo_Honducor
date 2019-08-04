@@ -20,25 +20,29 @@ namespace Proyecto_Honducor
     /// </summary>
     public partial class UserControlVenta : UserControl
     {
+        
         private LinqToSqlDataClassesDataContext data;
         public UserControlVenta()
         {
             InitializeComponent();
             string connectionString = ConfigurationManager.ConnectionStrings["Proyecto_Honducor.Properties.Settings.HonducorConnectionString"].ConnectionString;
 
-            data = new LinqToSqlDataClassesDataContext(connectionString);
+            data = new LinqToSqlDataClassesDataContext(connectionString);////
 
             data = new LinqToSqlDataClassesDataContext();
             var venta = from u in data.GetTable<Venta>()
                            select new { u.idEmpleado, u.identidadCliente, u.idPaquete, u.nombreCompletoCliente, u.fechaVenta, u.isv};
             dtDetalleVenta.ItemsSource = venta.ToList();
+            txtEmpleado.Text = ClaseGlobal.Idlog.ToString();
+
+
         }
 
         private void TxtGenerar_Click(object sender, RoutedEventArgs e)
         {
             Venta ven = new Venta();
-            ven.idEmpleado = txtEmpleado.Text;
-            ven.identidadCliente = txtIdenCliente.Text;
+            ven.idEmpleado = Convert.ToInt32(txtEmpleado.Text);
+            ven.identidadCliente = txtIdenCliente1.Text;
             ven.idPaquete = Convert.ToInt32(txtidPaquete.Text);
             ven.nombreCompletoCliente = txtCliente.Text;
             ven.isv = Convert.ToDecimal(txtIvs.Text);
@@ -46,16 +50,6 @@ namespace Proyecto_Honducor
             data.Venta.InsertOnSubmit(ven);
             data.SubmitChanges();
             dtDetalleVenta.ItemsSource = data.Empleado;
-        }
-
-        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            txtcantidad.Text = " ";
-            txtCliente.Text = " ";
-            txtEmpleado.Text = " ";
-            txtIvs.Text = " ";
-            txtPrecio.Text = " ";
-            txtTotal.Text = " ";
         }
     }
 }

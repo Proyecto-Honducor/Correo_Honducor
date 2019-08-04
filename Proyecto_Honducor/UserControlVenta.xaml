@@ -70,7 +70,7 @@
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
                     <TextBlock Text="Identidad Cliente              " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                    <TextBox x:Name="txtIdenCliente" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" Margin="0,7,0,6.6" RenderTransformOrigin="0.179,0.767" />
+                    <TextBox x:Name="txtIdenCliente1" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" Margin="0,7,0,6.6" RenderTransformOrigin="0.179,0.767" />
                 </StackPanel>
             </StackPanel>
             <Grid  Grid.Column="1">
