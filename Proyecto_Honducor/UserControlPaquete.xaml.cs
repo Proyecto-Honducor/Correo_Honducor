@@ -78,5 +78,17 @@ namespace Proyecto_Honducor
             
             
         }
+
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtCategoria.Text = " ";
+            TxtCliente.Text = " ";
+            txtDescripcion.Text = " ";
+            Txtdireccion.Text = " ";
+            txtfechaderecibo.Text = " ";
+            txtFechaEntregado.Text = " ";
+            Txtnoseguimiento.Text = " ";
+            txtPeso.Text = " ";
+        }
     }
 }

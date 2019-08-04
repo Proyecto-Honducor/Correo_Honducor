@@ -23,7 +23,7 @@
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Margin="5">
-                <Button x:Name="btnLimpiar" Content="Limpiar" Background="#5d99c6"  BorderBrush="#2A2D34" Height="40" RenderTransformOrigin="0.993,0.507" Margin="1088,0,11.8,0"/>
+                <Button x:Name="btnLimpiar" Content="Limpiar" Background="#5d99c6"  BorderBrush="#2A2D34" Height="40" RenderTransformOrigin="0.993,0.507" Margin="1088,0,11.8,0" Click="BtnLimpiar_Click"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2" Margin="0,0.4,0.2,88.2" Grid.RowSpan="2" >

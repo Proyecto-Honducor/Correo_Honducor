@@ -29,5 +29,13 @@ namespace Proyecto_Honducor
         {
 
         }
+
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtIdentidad.Text = " ";
+            txtNombre.Text = " ";
+            txtApellido.Text = " ";
+            txtNumeroTel.Text = " ";
+        }
     }
 }

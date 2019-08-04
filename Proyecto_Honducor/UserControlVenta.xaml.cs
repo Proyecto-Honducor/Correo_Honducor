@@ -24,5 +24,15 @@ namespace Proyecto_Honducor
         {
             InitializeComponent();
         }
+
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtcantidad.Text = " ";
+            txtCliente.Text = " ";
+            txtEmpleado.Text = " ";
+            txtIvs.Text = " ";
+            txtPrecio.Text = " ";
+            txtTotal.Text = " ";
+        }
     }
 }

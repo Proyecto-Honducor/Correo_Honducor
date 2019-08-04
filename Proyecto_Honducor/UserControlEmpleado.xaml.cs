@@ -125,5 +125,18 @@ namespace Proyecto_Honducor
                
             
         }
+
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtIdentidad.Text = " ";
+            txtNombre.Text = " ";
+            txtApellido.Text = " ";
+            txtDireccion.Text = " ";
+            txtCargo.Text = " ";
+            cbSexo.ItemsSource = default;
+            cbEstadoCivil.ItemsSource = default;
+            txtTelefono.Text = " ";
+            dateFecha.Text = " ";
+        }
     }
 }
