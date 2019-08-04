@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Honducor" Class="LinqToSqlDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=Honducor;Integrated Security=True" SettingsObjectName="Proyecto_Honducor.Properties.Settings" SettingsPropertyName="HonducorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Paquete.Categoria" Member="Categoria">
+    <Type Name="Categoria">
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreCategoria" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Categoria_Paquete" Member="Paquete" ThisKey="idCategoria" OtherKey="idCategoria" Type="Paquete" />
+    </Type>
+  </Table>
   <Table Name="Persona.Usuario" Member="Usuario">
     <Type Name="Usuario">
       <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -10,14 +18,6 @@
       <Association Name="Empleado_Usuario" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="Paquete.Categoria" Member="Categoria">
-    <Type Name="Categoria">
-      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nombreCategoria" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="Categoria_Paquete" Member="Paquete" ThisKey="idCategoria" OtherKey="idCategoria" Type="Paquete" />
-    </Type>
-  </Table>
   <Table Name="Paquete.DetalleVenta" Member="DetalleVenta">
     <Type Name="DetalleVenta">
       <Column Name="idDetalleVenta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -26,8 +26,23 @@
       <Column Name="precioUnidad" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
       <Column Name="cantidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="total" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
-      <Association Name="Venta_DetalleVenta" Member="Venta" ThisKey="idVenta" OtherKey="idVenta" Type="Venta" IsForeignKey="true" />
       <Association Name="Paquete_DetalleVenta" Member="Paquete" ThisKey="idPaquete" OtherKey="idPaquete" Type="Paquete" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Venta_DetalleVenta" Member="Venta" ThisKey="idVenta" OtherKey="idVenta" Type="Venta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Paquete.Paquete" Member="Paquete">
+    <Type Name="Paquete">
+      <Column Name="idPaquete" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="noSeguimiento" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="peso" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="fechaRecibido" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="fechaEntregado" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Paquete_DetalleVenta" Member="DetalleVenta" ThisKey="idPaquete" OtherKey="idPaquete" Type="DetalleVenta" />
+      <Association Name="Categoria_Paquete" Member="Categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="Paquete.Venta" Member="Venta">
@@ -38,7 +53,7 @@
       <Column Name="idPaquete" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="nombreCompletoCliente" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="fechaVenta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="isv" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="isv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Association Name="Venta_DetalleVenta" Member="DetalleVenta" ThisKey="idVenta" OtherKey="idVenta" Type="DetalleVenta" />
       <Association Name="Empleado_Venta" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
@@ -72,33 +87,7 @@
       <Column Name="estadoCivil" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
       <Association Name="Empleado_Usuario" Member="Usuario" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Usuario" />
       <Association Name="Empleado_Venta" Member="Venta" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Venta" />
-      <Association Name="Empleado_Usuario1" Member="Usuario1" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Usuario1" />
       <Association Name="Cargo_Empleado" Member="Cargo" ThisKey="idCargo" OtherKey="idCargo" Type="Cargo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="Persona.Usuario" Member="Usuario1">
-    <Type Name="Usuario1">
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nombreUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="contrasenia" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nivel" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="idEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Empleado_Usuario1" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="Paquete.Paquete" Member="Paquete">
-    <Type Name="Paquete">
-      <Column Name="idPaquete" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="noSeguimiento" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="peso" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="direccion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="fechaRecibido" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="fechaEntregado" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Paquete_DetalleVenta" Member="DetalleVenta" ThisKey="idPaquete" OtherKey="idPaquete" Type="DetalleVenta" />
-      <Association Name="Categoria_Paquete" Member="Categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>
