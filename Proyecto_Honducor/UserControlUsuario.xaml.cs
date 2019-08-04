@@ -32,7 +32,7 @@ namespace Proyecto_Honducor
 
         private void Btnsalir_Click(object sender, RoutedEventArgs e)
         {
-
+            Window.GetWindow(this).Close();
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)

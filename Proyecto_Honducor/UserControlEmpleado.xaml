@@ -77,7 +77,7 @@
             <Button x:Name="btnGuardar" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="321,485,657.8,40" FontSize="15" Height="44" Click="BtnGuardar_Click"/>
             <Button x:Name="btnEliminar" Content="Eliminar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="608,487,368.8,38" FontSize="15" Height="44" RenderTransformOrigin="0.861,0.526" Click="BtnEliminar_Click"/>
             <DataGrid x:Name="dgEmpleado1" HorizontalAlignment="Left" Height="355" Margin="580,29,0,0" VerticalAlignment="Top" Width="600" />
-            <Button x:Name="btnagragarusu" Content="Agregar User" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="977,410,114.8,81" FontSize="15" Height="Auto" RenderTransformOrigin="0.861,0.526"/>
+            <Button x:Name="btnagragarusu" Content="Agregar User" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="977,410,114.8,81" FontSize="15" Height="Auto" RenderTransformOrigin="0.861,0.526" Click="Btnagragarusu_Click"/>
         </Grid>
     </Grid>
 </UserControl>
