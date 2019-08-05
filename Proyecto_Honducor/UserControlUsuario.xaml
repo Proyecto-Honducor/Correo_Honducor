@@ -64,7 +64,7 @@
             <Button x:Name="btnbuscar"  Content="Buscar"  Margin="30,-100,10,50" FontSize="30" Width="194" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
             <Button Name="BtnAgregar"  Content="Guardar"  Margin="10,-100,0,50" FontSize="30" Width="187" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Click="BtnAgregar_Click"/>
             <Button Name="BtnActualizar"  Content="Actualizar"  Margin="30,-100,0,50" FontSize="30" Width="193" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Click="BtnActualizar_Click"/>
-            <Button x:Name="BtnEliminar"  Content="Eliminar"  Margin="30,-100,0,50" FontSize="30" Width="211" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
+            <Button x:Name="BtnEliminar"  Content="Eliminar"  Margin="30,-100,0,50" FontSize="30" Width="211" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Click="BtnEliminar_Click" />
         </StackPanel>
 
 

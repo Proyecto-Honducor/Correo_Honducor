@@ -40,6 +40,8 @@ namespace Proyecto_Honducor
                 txtnombre.IsEnabled = false;
                 BtnAgregar.IsEnabled = false;
                 btnbuscar.IsEnabled = false;
+
+
             }
             txtidempleado.Text = ClaseGlobal.Idempleadocreado.ToString();
         }
@@ -57,16 +59,22 @@ namespace Proyecto_Honducor
 
             try
             {
-                Usuario usu = new Usuario();
-                usu.nombreUsuario = txtnombre.Text;
-                usu.contrasenia = txtContrasenia.Text;
-                usu.nivel = cbNivel.Text;
-                usu.idEmpleado = Convert.ToInt32(txtidempleado.Text);
+                if(txtContrasenia.Text!="" && txtnombre.Text!="" && cbNivel.Text!="")
+                {
+                    Usuario usu = new Usuario();
+                    usu.nombreUsuario = txtnombre.Text;
+                    usu.contrasenia = txtContrasenia.Text;
+                    usu.nivel = cbNivel.Text;
+                    usu.idEmpleado = Convert.ToInt32(txtidempleado.Text);
 
-                datacontext.Usuario.InsertOnSubmit(usu);
-                datacontext.SubmitChanges();
+                    datacontext.Usuario.InsertOnSubmit(usu);
+                    datacontext.SubmitChanges();
 
-                dgusu.ItemsSource = datacontext.Usuario;
+                    MessageBox.Show("Usuario Creado con exito");
+
+                    dgusu.ItemsSource = datacontext.Usuario;
+                    
+                }
             }
             catch (Exception ex)
             {
@@ -80,7 +88,6 @@ namespace Proyecto_Honducor
         {
             cbNivel.ItemsSource = null;
             txtContrasenia.Text = " ";
-            txtidempleado.Text = " ";
             txtnombre.Text = " ";
         }
 
@@ -91,23 +98,65 @@ namespace Proyecto_Honducor
 
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            var update = datacontext.Usuario.FirstOrDefault(up => up.idEmpleado.Equals(txtidempleado.Text));
-            update.nombreUsuario = txtnombre.Text;
-            update.idEmpleado = Convert.ToInt32(txtidempleado.Text);
-            update.contrasenia = txtContrasenia.Text;
-            update.nivel = cbNivel.Text;
-            try
-            {
-                datacontext.SubmitChanges();
-            }
-            catch (Exception ex)
+
+            if (txtContrasenia.Text != "" && txtnombre.Text != "" && cbNivel.Text != "")
             {
 
-                MessageBox.Show(ex.ToString());
-            }
-            
+                var update = datacontext.Usuario.FirstOrDefault(up => up.idEmpleado.Equals(txtidempleado.Text));
+                update.nombreUsuario = txtnombre.Text;
+                update.idEmpleado = Convert.ToInt32(txtidempleado.Text);
+                update.contrasenia = txtContrasenia.Text;
+                update.nivel = cbNivel.Text;
+                try
+                {
+                    datacontext.SubmitChanges();
+                    MessageBox.Show("Registro actualizado con exito");
+                }
+                catch (Exception ex)
+                {
 
-            dgusu.ItemsSource = datacontext.Usuario;
+                    MessageBox.Show(ex.ToString());
+                }
+
+
+                dgusu.ItemsSource = datacontext.Usuario;
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtnombre.Text != "")
+            {
+                var empleado = (from emp in datacontext.Usuario
+                                where emp.idEmpleado == Convert.ToInt32(txtidempleado.Text)
+                                select emp).First();
+                //var empleado = data.Empleado.First(emp => emp.nombre.Equals(txtNombre.Text));
+                if (empleado != null)
+                {
+                    var eliminar = from elim in datacontext.Usuario
+                                   where elim.idEmpleado.Equals(txtidempleado.Text)
+                                   select elim;
+                    foreach (var detalles in eliminar)
+                    {
+                        datacontext.Usuario.DeleteOnSubmit(detalles);
+                    }
+                    try
+                    {
+                        datacontext.SubmitChanges();
+                        MessageBox.Show("Registro eliminado con exito");
+                        dgusu.ItemsSource = datacontext.Usuario;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+            }
+            else
+                MessageBox.Show("No existe registo con ese nombre");
+
+
         }
     }
 }
