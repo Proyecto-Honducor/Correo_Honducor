@@ -150,7 +150,9 @@ ALTER TABLE Paquete.DetalleVenta
 		ON UPDATE NO ACTION
 GO
 
-
+ALTER TABLE Persona.Cliente
+	add apellido nvarchar(20) ;
+go
 SELECT * FROM Paquete.Paquete
 GO
 
