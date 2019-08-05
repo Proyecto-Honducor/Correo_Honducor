@@ -61,18 +61,18 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                         <TextBlock Text="Id Cliente                   " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
-                        <TextBox x:Name="TxtCliente" Background="White" Width="272" FontSize="20" Foreground="Black"/>
+                        <TextBox x:Name="TxtCliente" Background="White" Width="272" FontSize="20" Foreground="Black" GotFocus="TxtCliente_GotFocus" LostFocus="TxtCliente_LostFocus"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Height="51" RenderTransformOrigin="0.496,1.033">
                         <TextBlock Text="Categoría                 " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
-                        <TextBox x:Name="txtCategoria" FontSize="20"  Margin="10" Width="272" Foreground="Black"/>
+                        <TextBox x:Name="txtCategoria" FontSize="20"  Margin="10" Width="272" Foreground="Black" GotFocus="TxtCategoria_GotFocus" LostFocus="TxtCategoria_LostFocus"/>
                     </StackPanel>
 
                 </StackPanel>
             </StackPanel>
             <Button x:Name="btnBuscar" Width="300" Content="Buscar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="120,448,170,8" FontSize="15" Height="44" Click="BtnBuscar_Click"/>
             <Button x:Name="btnGuardarT" Width="300" Content="Guardar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="492,448,424,8" FontSize="15" Height="44" Click="BtnGuardarT_Click" Grid.ColumnSpan="3"/>
-            <Button x:Name="btnModificar" Width="300" Content="Modificar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="245,450,51,6" FontSize="15" Height="44" RenderTransformOrigin="0.504,0.563" Grid.Column="2"/>
+            <Button x:Name="btnModificar" Width="300" Content="Modificar" Background="#5d99c6"  BorderBrush="#2A2D34"  Margin="245,450,51,6" FontSize="15" Height="44" RenderTransformOrigin="0.504,0.563" Grid.Column="2" Click="BtnModificar_Click"/>
             <DataGrid x:Name="dgPaquete" HorizontalAlignment="Left" Height="355" Margin="580,29,0,0" VerticalAlignment="Top" Width="600" Grid.ColumnSpan="3"/>
         </Grid>
     </Grid>
