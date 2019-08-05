@@ -33,21 +33,52 @@ namespace Proyecto_Honducor
             var venta = from u in data.GetTable<Venta>()
                            select new { u.idEmpleado, u.identidadCliente, u.idPaquete, u.nombreCompletoCliente, u.fechaVenta, u.isv};
             dtDetalleVenta.ItemsSource = venta.ToList();
-            txtEmpleado.Text = ClaseGlobal.Idempleado.ToString();
+            txtEmpleado.Text = ClaseGlobal.Idlog.ToString();
+
+
         }
 
         private void TxtGenerar_Click(object sender, RoutedEventArgs e)
         {
-            //Venta ven = new Venta();
-            //ven.idEmpleado = txtEmpleado.Text;
-            //ven.identidadCliente = txtIdenCliente.Text;
-            //ven.idPaquete = Convert.ToInt32(txtidPaquete.Text);
-            //ven.nombreCompletoCliente = txtCliente.Text;
-            //ven.isv = Convert.ToDecimal(txtIvs.Text);
+            try
+            {
+                if (txtcantidad.Text != "" && txtCliente.Text != "" && txtEmpleado.Text != "" && txtfechaventa.Text != "" && txtIdenCliente1.Text != "" && txtidPaquete.Text != "" && txtIvs.Text != "" && txtPrecio.Text != "" && txtTotal.Text != "")
+                {
+                    Venta ven = new Venta();
+                    ven.idEmpleado = Convert.ToInt32(txtEmpleado.Text);
+                    ven.identidadCliente = txtIdenCliente1.Text;
+                    ven.idPaquete = Convert.ToInt32(txtidPaquete.Text);
+                    ven.nombreCompletoCliente = txtCliente.Text;
+                    ven.fechaVenta = Convert.ToDateTime(txtfechaventa.Text);
+                    ven.isv = Convert.ToDecimal(txtIvs.Text);
 
-            //data.Venta.InsertOnSubmit(ven);
-            //data.SubmitChanges();
-            //dtDetalleVenta.ItemsSource = data.Empleado;
+                    data.Venta.InsertOnSubmit(ven);
+                    data.SubmitChanges();
+
+
+                    var venta = data.Venta.FirstOrDefault(usu => usu.nombreCompletoCliente.Equals(txtCliente.Text));
+                    if (venta.nombreCompletoCliente != null)
+                    {
+                        ClaseGlobal.Idventa = venta.idVenta;
+                        DetalleVenta dt = new DetalleVenta();
+                        dt.idPaquete = Convert.ToInt32(txtidPaquete.Text);
+                        dt.idVenta = ClaseGlobal.Idventa;
+                        dt.precioUnidad = Convert.ToDecimal(txtPrecio.Text);
+                        dt.cantidad = Convert.ToInt32(txtcantidad.Text);
+                        dt.total = Convert.ToDecimal(txtTotal.Text);
+
+                        data.DetalleVenta.InsertOnSubmit(dt);
+                        data.SubmitChanges();
+                    }
+                    dtDetalleVenta.ItemsSource = data.Venta;
+                    MessageBox.Show("Venta registrada con exito");
+                }  
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

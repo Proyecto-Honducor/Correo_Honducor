@@ -29,6 +29,7 @@ namespace Proyecto_Honducor
             string connectionString = ConfigurationManager.ConnectionStrings["Proyecto_Honducor.Properties.Settings.HonducorConnectionString"].ConnectionString;
 
             dataContext = new LinqToSqlDataClassesDataContext(connectionString);
+            
         }
 
         private void Salir_Click(object sender, RoutedEventArgs e)
@@ -52,6 +53,7 @@ namespace Proyecto_Honducor
                     if (usuariologeado.contrasenia == txtContrasena.Password)
                     {
                         MessageBox.Show("Logueado con exito");
+                        ClaseGlobal.Idlog=usuariologeado.idUsuario;
                         ClaseGlobal.Nomlog = txtUsuario.Text;
                         ClaseGlobal.Cargolog = usuariologeado.nivel;
                         this.Close();

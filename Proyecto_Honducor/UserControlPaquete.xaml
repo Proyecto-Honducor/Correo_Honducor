@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto_Honducor"
   xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" d:DesignWidth="1215" Height="592">
+             mc:Ignorable="d" d:DesignHeight="644" d:DesignWidth="1225">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -15,10 +15,15 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Background="#90caf9" Height="50" VerticalAlignment="Top" Grid.Row="0">
-            <TextBlock Text="PAQUETE" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="white" />
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" >
+            <TextBlock Text="Paquetes" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="white" />
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,9"  Background="#5d99c6"  BorderBrush="#2A2D34" Click="Button_Click" >
                 <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
             </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Margin="5">
+                <Button x:Name="btnLimpiar" Content="Limpiar" Background="#5d99c6"  BorderBrush="#2A2D34" Height="40" RenderTransformOrigin="0.993,0.507" Margin="1066,0,48.4,0" Click="BtnLimpiar_Click"/>
+            </StackPanel>
         </Grid>
         <Grid Grid.Row="2"  Background="White">
             <Grid.ColumnDefinitions>
@@ -26,7 +31,7 @@
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="298*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal"  Grid.Column="0"  Margin="80,20,0,-11" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal"  Grid.Column="0"  Margin="80,10,0,-11" Grid.ColumnSpan="3">
                 <StackPanel Width="569" Height="448" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Descripcion                " VerticalAlignment="Center" FontSize="20" Foreground="Black"/>

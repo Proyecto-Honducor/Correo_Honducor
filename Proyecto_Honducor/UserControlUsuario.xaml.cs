@@ -28,6 +28,7 @@ namespace Proyecto_Honducor
             string connectionString = ConfigurationManager.ConnectionStrings["Proyecto_Honducor.Properties.Settings.HonducorConnectionString"].ConnectionString;
 
             datacontext = new LinqToSqlDataClassesDataContext(connectionString);
+            txtidempleado.Text = ClaseGlobal.Idempleadocreado.ToString();
         }
 
         private void Btnsalir_Click(object sender, RoutedEventArgs e)
@@ -41,7 +42,7 @@ namespace Proyecto_Honducor
             Usuario usu = new Usuario();
             usu.nombreUsuario =txtnombre.Text;
             usu.contrasenia = txtContrasenia.Text;
-            usu.nivel = txtNivel.Text;
+            usu.nivel = cbNivel.Text;
             usu.idEmpleado = Convert.ToInt32(txtidempleado.Text);
 
             datacontext.Usuario.InsertOnSubmit(usu);
@@ -49,6 +50,19 @@ namespace Proyecto_Honducor
 
                 
 
+
+        }
+
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            cbNivel.ItemsSource = null;
+            txtContrasenia.Text = " ";
+            txtidempleado.Text = " ";
+            txtnombre.Text = " ";
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

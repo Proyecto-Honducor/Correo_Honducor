@@ -27,7 +27,15 @@ namespace Proyecto_Honducor
 
         private void Btnsalir_Click(object sender, RoutedEventArgs e)
         {
+            (this.Parent as Grid).Children.Remove(this);
+        }
 
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtIdentidad.Text = " ";
+            txtNombre.Text = " ";
+            txtApellido.Text = " ";
+            txtNumeroTel.Text = " ";
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Proyecto_Honducor
             {
                 data = new LinqToSqlDataClassesDataContext();
                 var empleado = from u in data.GetTable<Empleado>()
-                               where u.identidad.Contains(txtIdentidad.Text)
+                               where u.identidad.Equals(txtIdentidad.Text)
                                select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
                 if(empleado==null)
                 { MessageBox.Show("no existe"); }//
@@ -50,7 +50,7 @@ namespace Proyecto_Honducor
             else
                 MessageBox.Show("ingrese un numero de identidad"); txtIdentidad.Focus();
 
-
+            
         }
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
@@ -73,19 +73,28 @@ namespace Proyecto_Honducor
 
         private void Btnagragarusu_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new Window
+            if (txtIdentidad.Text == "")
             {
-                Title = "My User Control, Dialog",
-                Height = 500,
-                Width = 1250,
-                ResizeMode = ResizeMode.NoResize,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                WindowStyle = WindowStyle.None,
-                Content = new UserControlUsuario()
-            };
+                var usuariologeado = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
+                if (usuariologeado.identidad != null)
+                {
+                    ClaseGlobal.Idempleadocreado = usuariologeado.idEmpleado;
+                    Window window = new Window
+                    {
+                        Title = "My User Control, Dialog",
+                        Height = 500,
+                        Width = 1250,
+                        ResizeMode = ResizeMode.NoResize,
+                        WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                        WindowStyle = WindowStyle.None,
+                        Content = new UserControlUsuario()
+                    };
 
-            window.ShowDialog();
-
+                    window.ShowDialog();
+                }
+            }
+            else
+                MessageBox.Show("debe ingresar una identidad de un usuario valido");
         }
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
@@ -94,7 +103,7 @@ namespace Proyecto_Honducor
             {
                 var empleado = (from emp in data.Empleado
                                where emp.identidad == txtIdentidad.Text
-                               select emp).FirstOrDefault();
+                               select emp).First();
                 //var empleado = data.Empleado.First(emp => emp.nombre.Equals(txtNombre.Text));
                 if (empleado != null)
                 {
@@ -124,6 +133,24 @@ namespace Proyecto_Honducor
                 MessageBox.Show("No existe registo con ese nombre");
                
             
+        }
+
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtIdentidad.Text = " ";
+            txtNombre.Text = " ";
+            txtApellido.Text = " ";
+            txtDireccion.Text = " ";
+            txtCargo.Text = " ";
+            cbSexo.ItemsSource = default;
+            cbEstadoCivil.ItemsSource = default;
+            txtTelefono.Text = " ";
+            dateFecha.Text = " ";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

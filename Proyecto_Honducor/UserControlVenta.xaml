@@ -46,7 +46,7 @@
                 <ColumnDefinition Width="550"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="336" Margin="0,40,0.4,0" RenderTransformOrigin="0.513,0.679">
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="370" Margin="0,6,0,-1.2" RenderTransformOrigin="0.513,0.679">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
                     <TextBlock Text="Cantidad         " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtcantidad" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
@@ -56,7 +56,7 @@
                     <TextBox x:Name="txtPrecio" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="ISV                 " FontSize="20" VerticalAlignment="Center"/>
+                    <TextBlock Text="ISV                 " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtIvs" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
@@ -67,9 +67,13 @@
                     <TextBlock Text="IdPaquete              " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtidPaquete" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
-                <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
+                <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="-2,0">
+                    <TextBlock Text="Fecha Venta  " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <DatePicker x:Name="txtfechaventa" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="-2,0-">
                     <TextBlock Text="Identidad Cliente              " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                    <TextBox x:Name="txtIdenCliente" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" Margin="0,7,0,6.6" RenderTransformOrigin="0.179,0.767" />
+                    <TextBox x:Name="txtIdenCliente1" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" Margin="0,7,0,6.6" RenderTransformOrigin="0.179,0.767" />
                 </StackPanel>
             </StackPanel>
             <Grid  Grid.Column="1">
@@ -79,9 +83,15 @@
 
             </Grid>
         </Grid>
-        <Grid Grid.Row="5">
-            <StackPanel Orientation="Horizontal" Height="68" HorizontalAlignment="Center" Margin="63,29,101.8,29.4" Width="1060" RenderTransformOrigin="1.132,0.856">
-                <Button x:Name="txtGenerar" FontSize="20" Content="Generar Factura" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Margin="390,1,0,0" Click="TxtGenerar_Click"/>
+        <Grid Grid.Row="4" Margin="-8,0,7,-16" Height="114" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="1200*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="8,26,132,20" Width="1060" RenderTransformOrigin="1.132,0.856" Grid.Column="3">
+                <Button x:Name="txtGenerar" FontSize="20" Content="Generar Factura" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Margin="390,10,0,8" Click="TxtGenerar_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
