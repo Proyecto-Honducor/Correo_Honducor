@@ -33,9 +33,9 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom" Height="367" Margin="0,-36,0,81.2">
-                <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="48,15,38,0">
-                    <TextBlock Text="Identidad      " FontSize="25" VerticalAlignment="Center"  Margin="10,10,0,-0.4" Foreground="Black"/>
-                    <TextBox Name="txtIdentidad" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,7,0,7.6" Foreground="Black"/>
+                <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="10,15,0,0">
+                    <TextBlock Text="Identidad      " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0" Foreground="Black"/>
+                    <TextBox Name="txtIdentidad" Width="325" FontSize="25"  VerticalAlignment="Center"  Margin="10,0,0,0" Foreground="Black"/>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center"  Margin="10,15,0,0" >
                     <TextBlock Text="Nombre       " FontSize="25" VerticalAlignment="Center"  Margin="10,0,0,0" Foreground="Black"/>
@@ -51,11 +51,11 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Height="362" Margin="0,52,0,86">
-                <DataGrid Height="328" Margin="0,0,28,0"></DataGrid>
+                <DataGrid x:Name="dgcliente" Height="328" Margin="0,0,28,0"></DataGrid>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="123,263,123.2,-138" Grid.Row="2" VerticalAlignment="Center" Height="375" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
-            <Button x:Name="BtnAgregar"  Content="Guardar"  Margin="10,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
+            <Button x:Name="BtnAgregar"  Content="Guardar"  Margin="10,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Click="BtnAgregar_Click"/>
             <Button x:Name="BtnActualizar"  Content="Actualizar"  Margin="30,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
             <Button x:Name="BtnEliminar"  Content="Eliminar"  Margin="30,-100,0,50" FontSize="30" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" />
         </StackPanel>

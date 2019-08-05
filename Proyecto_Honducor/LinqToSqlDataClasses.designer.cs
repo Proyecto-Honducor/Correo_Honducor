@@ -48,12 +48,12 @@ namespace Proyecto_Honducor
     partial void InsertEmpleado(Empleado instance);
     partial void UpdateEmpleado(Empleado instance);
     partial void DeleteEmpleado(Empleado instance);
-    partial void InsertCliente(Cliente instance);
-    partial void UpdateCliente(Cliente instance);
-    partial void DeleteCliente(Cliente instance);
     partial void InsertCargo(Cargo instance);
     partial void UpdateCargo(Cargo instance);
     partial void DeleteCargo(Cargo instance);
+    partial void InsertCliente(Cliente instance);
+    partial void UpdateCliente(Cliente instance);
+    partial void DeleteCliente(Cliente instance);
     #endregion
 		
 		public LinqToSqlDataClassesDataContext() : 
@@ -134,19 +134,19 @@ namespace Proyecto_Honducor
 			}
 		}
 		
-		public System.Data.Linq.Table<Cliente> Cliente
-		{
-			get
-			{
-				return this.GetTable<Cliente>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Cargo> Cargo
 		{
 			get
 			{
 				return this.GetTable<Cargo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Cliente> Cliente
+		{
+			get
+			{
+				return this.GetTable<Cliente>();
 			}
 		}
 	}
@@ -1725,140 +1725,6 @@ namespace Proyecto_Honducor
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="Persona.Cliente")]
-	public partial class Cliente : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idCliente;
-		
-		private string _nombre;
-		
-		private string _identidad;
-		
-		private string _telefono;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidClienteChanging(int value);
-    partial void OnidClienteChanged();
-    partial void OnnombreChanging(string value);
-    partial void OnnombreChanged();
-    partial void OnidentidadChanging(string value);
-    partial void OnidentidadChanged();
-    partial void OntelefonoChanging(string value);
-    partial void OntelefonoChanged();
-    #endregion
-		
-		public Cliente()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCliente", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idCliente
-		{
-			get
-			{
-				return this._idCliente;
-			}
-			set
-			{
-				if ((this._idCliente != value))
-				{
-					this.OnidClienteChanging(value);
-					this.SendPropertyChanging();
-					this._idCliente = value;
-					this.SendPropertyChanged("idCliente");
-					this.OnidClienteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this.OnnombreChanging(value);
-					this.SendPropertyChanging();
-					this._nombre = value;
-					this.SendPropertyChanged("nombre");
-					this.OnnombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_identidad", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-		public string identidad
-		{
-			get
-			{
-				return this._identidad;
-			}
-			set
-			{
-				if ((this._identidad != value))
-				{
-					this.OnidentidadChanging(value);
-					this.SendPropertyChanging();
-					this._identidad = value;
-					this.SendPropertyChanged("identidad");
-					this.OnidentidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="VarChar(9)")]
-		public string telefono
-		{
-			get
-			{
-				return this._telefono;
-			}
-			set
-			{
-				if ((this._telefono != value))
-				{
-					this.OntelefonoChanging(value);
-					this.SendPropertyChanging();
-					this._telefono = value;
-					this.SendPropertyChanged("telefono");
-					this.OntelefonoChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="Persona.Cargo")]
 	public partial class Cargo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1970,6 +1836,164 @@ namespace Proyecto_Honducor
 		{
 			this.SendPropertyChanging();
 			entity.Cargo = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Persona.Cliente")]
+	public partial class Cliente : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idCliente;
+		
+		private string _nombre;
+		
+		private string _identidad;
+		
+		private string _telefono;
+		
+		private string _apellido;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidClienteChanging(int value);
+    partial void OnidClienteChanged();
+    partial void OnnombreChanging(string value);
+    partial void OnnombreChanged();
+    partial void OnidentidadChanging(string value);
+    partial void OnidentidadChanged();
+    partial void OntelefonoChanging(string value);
+    partial void OntelefonoChanged();
+    partial void OnapellidoChanging(string value);
+    partial void OnapellidoChanged();
+    #endregion
+		
+		public Cliente()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCliente", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idCliente
+		{
+			get
+			{
+				return this._idCliente;
+			}
+			set
+			{
+				if ((this._idCliente != value))
+				{
+					this.OnidClienteChanging(value);
+					this.SendPropertyChanging();
+					this._idCliente = value;
+					this.SendPropertyChanged("idCliente");
+					this.OnidClienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this.OnnombreChanging(value);
+					this.SendPropertyChanging();
+					this._nombre = value;
+					this.SendPropertyChanged("nombre");
+					this.OnnombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_identidad", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string identidad
+		{
+			get
+			{
+				return this._identidad;
+			}
+			set
+			{
+				if ((this._identidad != value))
+				{
+					this.OnidentidadChanging(value);
+					this.SendPropertyChanging();
+					this._identidad = value;
+					this.SendPropertyChanged("identidad");
+					this.OnidentidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="VarChar(9)")]
+		public string telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this.OntelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._telefono = value;
+					this.SendPropertyChanged("telefono");
+					this.OntelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="NVarChar(20)")]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this.OnapellidoChanging(value);
+					this.SendPropertyChanging();
+					this._apellido = value;
+					this.SendPropertyChanged("apellido");
+					this.OnapellidoChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

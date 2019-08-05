@@ -198,17 +198,16 @@ INSERT INTO Paquete.Paquete(descripcion,noSeguimiento,peso,direccion,idCliente,i
 VALUES('Carmelo','15646','15','Los Angeles',1,1),
 	  ('Carmela','2511', '25','New York',2,2)
 go
-
-SELECT * FROM Persona.Usuario
-GO
-
-SELECT * FROM Persona.Cliente
-GO
-*/
-
 INSERT INTO Paquete.Venta(idEmpleado,identidadCliente,idPaquete,nombreCompletoCliente,isv)
 VALUES(1,'1007199',1,'Mario Rudy Mayorga',0.15)
 GO
 
 SELECT * FROM Paquete.Venta
 GO
+SELECT * FROM Paquete.DetalleVenta
+GO
+
+SELECT * FROM Persona.Cliente
+GO
+*/
+

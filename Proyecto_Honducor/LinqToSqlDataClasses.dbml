@@ -75,19 +75,20 @@
       <Association Name="Cargo_Empleado" Member="Cargo" ThisKey="idCargo" OtherKey="idCargo" Type="Cargo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
+  <Table Name="Persona.Cargo" Member="Cargo">
+    <Type Name="Cargo">
+      <Column Name="idCargo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cargo" Member="cargo1" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="Cargo_Empleado" Member="Empleado" ThisKey="idCargo" OtherKey="idCargo" Type="Empleado" />
+    </Type>
+  </Table>
   <Table Name="Persona.Cliente" Member="Cliente">
     <Type Name="Cliente">
       <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nombre" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="identidad" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="telefono" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="Persona.Cargo" Member="Cargo">
-    <Type Name="Cargo">
-      <Column Name="idCargo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="cargo" Member="cargo1" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Association Name="Cargo_Empleado" Member="Empleado" ThisKey="idCargo" OtherKey="idCargo" Type="Empleado" />
+      <Column Name="apellido" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
