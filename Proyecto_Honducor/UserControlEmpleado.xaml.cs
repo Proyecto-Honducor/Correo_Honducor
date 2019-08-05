@@ -90,10 +90,10 @@ namespace Proyecto_Honducor
                 if (usuariologeado.identidad != null)
                 {
                     ClaseGlobal.Idempleadocreado = usuariologeado.idEmpleado;
-                    var usun = data.Usuario.FirstOrDefault(usu => usu.idEmpleado.Equals(ClaseGlobal.Idempleadocreado));
-                    if (usun.nombreUsuario==null)
+                    var usun = data.Usuario.FirstOrDefault(u => u.idEmpleado.Equals(usuariologeado.idEmpleado));
+                    if (usun == null)
                     {
-                        
+
                         Window window = new Window
                         {
                             Title = "My User Control, Dialog",
@@ -108,7 +108,31 @@ namespace Proyecto_Honducor
                         window.ShowDialog();
                     }
                     else
-                        MessageBox.Show("El Empleado ya tiene un usuario.... ¿Desea actualizar el Usuario?")
+                    {
+                        if (MessageBox.Show("El Empleado ya tiene un usuario.... ¿Desea actualizar el Usuario?", "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            var userr = data.Usuario.FirstOrDefault(usu => usu.idEmpleado.Equals(usuariologeado.idEmpleado));
+                            if(userr != null)
+                            {
+                                ClaseGlobal.Idusu = userr.nombreUsuario;
+                                ClaseGlobal.Estado = 1;
+                            }
+                           
+                            Window window = new Window
+                            {
+                                Title = "My User Control, Dialog",
+                                Height = 500,
+                                Width = 1250,
+                                ResizeMode = ResizeMode.NoResize,
+                                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                                WindowStyle = WindowStyle.None,
+                               Content = new UserControlUsuario()
+                            };
+
+                            window.ShowDialog();
+                            
+                        }
+                    }
                 }
             }
             else

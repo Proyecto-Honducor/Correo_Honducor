@@ -15,6 +15,8 @@ namespace Proyecto_Honducor
         private static int idempleado;
         private static int idempleadocreado;
         private static int idventa;
+        private static string idusu;
+        private static int estado = 0;
 
         public static int Idlog { get => idlog; set => idlog = value; }
         public static string Nomlog { get => nomlog; set => nomlog = value; }
@@ -22,5 +24,7 @@ namespace Proyecto_Honducor
         public static int Idempleado { get => idempleado; set => idempleado = value; }
         public static int Idempleadocreado { get => idempleadocreado; set => idempleadocreado = value; }
         public static int Idventa { get => idventa; set => idventa = value; }
+        public static string Idusu { get => idusu; set => idusu = value; }
+        public static int Estado { get => estado; set => estado = value; }
     }
 }

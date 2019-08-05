@@ -34,12 +34,18 @@ namespace Proyecto_Honducor
                            select new { u.idUsuario, u.nombreUsuario, u.nivel, u.contrasenia, u.idEmpleado};
             dgusu.ItemsSource = usuario.ToList();
 
+            if(ClaseGlobal.Estado==1)
+            {
+                txtnombre.Text = ClaseGlobal.Idusu;
+                txtnombre.IsEnabled = false;
+            }
             txtidempleado.Text = ClaseGlobal.Idempleadocreado.ToString();
         }
 
         private void Btnsalir_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Close();
+            ClaseGlobal.Estado = 0;
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
