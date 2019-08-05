@@ -42,14 +42,14 @@ namespace Proyecto_Honducor
         {
             try
             {
-                if (txtcantidad.Text != "" && txtCliente.Text != "" && txtEmpleado.Text != "" && txtfechaventa.Text != "" && txtIdenCliente1.Text != "" && txtidPaquete.Text != "" && txtIvs.Text != "" && txtPrecio.Text != "" && txtTotal.Text != "")
+                if (txtcantidad.Text != "" && txtCliente.Text != "" && txtEmpleado.Text != "" && txtfechaventa1.Text != "" && txtIdenCliente1.Text != "" && txtidPaquete.Text != "" && txtIvs.Text != "" && txtPrecio.Text != "" && txtTotal.Text != "")
                 {
                     Venta ven = new Venta();
                     ven.idEmpleado = Convert.ToInt32(txtEmpleado.Text);
                     ven.identidadCliente = txtIdenCliente1.Text;
                     ven.idPaquete = Convert.ToInt32(txtidPaquete.Text);
                     ven.nombreCompletoCliente = txtCliente.Text;
-                    ven.fechaVenta = Convert.ToDateTime(txtfechaventa.Text);
+                    ven.fechaVenta = Convert.ToDateTime(txtfechaventa1.Text);
                     ven.isv = Convert.ToDecimal(txtIvs.Text);
 
                     data.Venta.InsertOnSubmit(ven);
