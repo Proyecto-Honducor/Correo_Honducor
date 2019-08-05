@@ -55,42 +55,60 @@ namespace Proyecto_Honducor
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Empleado emp = new Empleado();
-            emp.identidad = txtIdentidad.Text;
-            emp.nombre = txtNombre.Text;
-            emp.apellido = txtApellido.Text;
-            emp.direccion = txtDireccion.Text;
-            emp.telefono = txtTelefono.Text;
-            emp.fechaNac = Convert.ToDateTime(dateFecha.Text);
-            emp.sexo = cbSexo.Text;
-            emp.idCargo = Convert.ToInt32(txtCargo.Text);
-            emp.estadoCivil = cbEstadoCivil.Text;
+            try
+            {
+                Empleado emp = new Empleado();
+                emp.identidad = txtIdentidad.Text;
+                emp.nombre = txtNombre.Text;
+                emp.apellido = txtApellido.Text;
+                emp.direccion = txtDireccion.Text;
+                emp.telefono = txtTelefono.Text;
+                emp.fechaNac = Convert.ToDateTime(dateFecha.Text);
+                emp.sexo = cbSexo.Text;
+                emp.idCargo = Convert.ToInt32(txtCargo.Text);
+                emp.estadoCivil = cbEstadoCivil.Text;
 
-            data.Empleado.InsertOnSubmit(emp);
-            data.SubmitChanges();
-            dgEmpleado1.ItemsSource = data.Empleado;
+                data.Empleado.InsertOnSubmit(emp);
+                data.SubmitChanges();
+                dgEmpleado1.ItemsSource = data.Empleado;
+
+                var usuariologeado = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
+                ClaseGlobal.Idempleadocreado = usuariologeado.idEmpleado;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void Btnagragarusu_Click(object sender, RoutedEventArgs e)
         {
-            if (txtIdentidad.Text == "")
+            if (txtIdentidad.Text != "")
             {
                 var usuariologeado = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
                 if (usuariologeado.identidad != null)
                 {
                     ClaseGlobal.Idempleadocreado = usuariologeado.idEmpleado;
-                    Window window = new Window
+                    var usun = data.Usuario.FirstOrDefault(usu => usu.idEmpleado.Equals(ClaseGlobal.Idempleadocreado));
+                    if (usun.nombreUsuario==null)
                     {
-                        Title = "My User Control, Dialog",
-                        Height = 500,
-                        Width = 1250,
-                        ResizeMode = ResizeMode.NoResize,
-                        WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                        WindowStyle = WindowStyle.None,
-                        Content = new UserControlUsuario()
-                    };
+                        
+                        Window window = new Window
+                        {
+                            Title = "My User Control, Dialog",
+                            Height = 500,
+                            Width = 1250,
+                            ResizeMode = ResizeMode.NoResize,
+                            WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                            WindowStyle = WindowStyle.None,
+                            Content = new UserControlUsuario()
+                        };
 
-                    window.ShowDialog();
+                        window.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("El Empleado ya tiene un usuario.... ¿Desea actualizar el Usuario?")
                 }
             }
             else

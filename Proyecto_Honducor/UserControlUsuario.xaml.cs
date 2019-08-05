@@ -28,6 +28,12 @@ namespace Proyecto_Honducor
             string connectionString = ConfigurationManager.ConnectionStrings["Proyecto_Honducor.Properties.Settings.HonducorConnectionString"].ConnectionString;
 
             datacontext = new LinqToSqlDataClassesDataContext(connectionString);
+
+            datacontext = new LinqToSqlDataClassesDataContext();
+            var usuario = from u in datacontext.GetTable<Usuario>()
+                           select new { u.idUsuario, u.nombreUsuario, u.nivel, u.contrasenia, u.idEmpleado};
+            dgusu.ItemsSource = usuario.ToList();
+
             txtidempleado.Text = ClaseGlobal.Idempleadocreado.ToString();
         }
 
@@ -39,14 +45,24 @@ namespace Proyecto_Honducor
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
         {
 
-            Usuario usu = new Usuario();
-            usu.nombreUsuario =txtnombre.Text;
-            usu.contrasenia = txtContrasenia.Text;
-            usu.nivel = cbNivel.Text;
-            usu.idEmpleado = Convert.ToInt32(txtidempleado.Text);
+            try
+            {
+                Usuario usu = new Usuario();
+                usu.nombreUsuario = txtnombre.Text;
+                usu.contrasenia = txtContrasenia.Text;
+                usu.nivel = cbNivel.Text;
+                usu.idEmpleado = Convert.ToInt32(txtidempleado.Text);
 
-            datacontext.Usuario.InsertOnSubmit(usu);
-            datacontext.SubmitChanges();
+                datacontext.Usuario.InsertOnSubmit(usu);
+                datacontext.SubmitChanges();
+
+                dgusu.ItemsSource = datacontext.Usuario;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
 
         }
 
