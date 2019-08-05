@@ -15,7 +15,7 @@ using System.Configuration;
 
 namespace Proyecto_Honducor
 {
-    /// <summary>
+    //// <summary>
     /// Lógica de interacción para Login.xaml
     //// </summary>
     public partial class Login : Window
