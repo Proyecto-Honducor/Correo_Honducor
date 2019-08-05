@@ -29,6 +29,11 @@ namespace Proyecto_Honducor
             log.ShowDialog();
             lblusu.Content = ClaseGlobal.Nomlog;
             lblcargo.Content = ClaseGlobal.Cargolog;
+
+            if(ClaseGlobal.Cargolog=="Empleado" || ClaseGlobal.Cargolog=="empleado")
+            {
+               
+            }
             startclock();
             
         }
@@ -90,20 +95,8 @@ namespace Proyecto_Honducor
                     GridMain.Children.Add(usc);
                     break;
                 case "ItemReporte":
-                    //usc = new UserControlCategoria();
-                    //GridMain.Children.Add(usc);
-                    break;
-                case "ItemClientes":
-                    //usc = new UserControlClientes();
-                    //GridMain.Children.Add(usc);
-                    break;
-                case "ItemProducto":
-                    //usc = new UserControlProducto();
-                   // GridMain.Children.Add(usc);
-                    break;
-                case "ItemUsuarios":
-                    //usc = new UserControlUsuarios();
-                    //ridMain.Children.Add(usc);
+                    usc = new UserControlReporte();
+                    GridMain.Children.Add(usc);
                     break;
                 default:
                     break;
@@ -125,15 +118,10 @@ namespace Proyecto_Honducor
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Realmente desea cerrar sesion?", "Consulta", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-              //  login.Show();
-                this.Close();
-            }
-            else
-            {
-                //No hace nada
-            }
+            Login log = new Login();
+            log.ShowDialog();
+            lblusu.Content = ClaseGlobal.Nomlog;
+            lblcargo.Content = ClaseGlobal.Cargolog;
 
         }
 
@@ -146,6 +134,17 @@ namespace Proyecto_Honducor
         {
 
 
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key.Equals(Key.F5))
+            {
+                Login log = new Login();
+                log.ShowDialog();
+                lblusu.Content = ClaseGlobal.Nomlog;
+                lblcargo.Content = ClaseGlobal.Cargolog;
+            }
         }
     }
 }

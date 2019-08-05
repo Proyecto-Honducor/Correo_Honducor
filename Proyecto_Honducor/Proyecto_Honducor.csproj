@@ -88,6 +88,9 @@
     <Compile Include="UserControlPaquete.xaml.cs">
       <DependentUpon>UserControlPaquete.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlReporte.xaml.cs">
+      <DependentUpon>UserControlReporte.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlUsuario.xaml.cs">
       <DependentUpon>UserControlUsuario.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlPaquete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlReporte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
