@@ -38,6 +38,8 @@ namespace Proyecto_Honducor
             {
                 txtnombre.Text = ClaseGlobal.Idusu;
                 txtnombre.IsEnabled = false;
+                BtnAgregar.IsEnabled = false;
+                btnbuscar.IsEnabled = false;
             }
             txtidempleado.Text = ClaseGlobal.Idempleadocreado.ToString();
         }
@@ -46,6 +48,8 @@ namespace Proyecto_Honducor
         {
             Window.GetWindow(this).Close();
             ClaseGlobal.Estado = 0;
+            BtnAgregar.IsEnabled = true;
+            btnbuscar.IsEnabled = true;
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
@@ -83,6 +87,27 @@ namespace Proyecto_Honducor
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            var update = datacontext.Usuario.FirstOrDefault(up => up.idEmpleado.Equals(txtidempleado.Text));
+            update.nombreUsuario = txtnombre.Text;
+            update.idEmpleado = Convert.ToInt32(txtidempleado.Text);
+            update.contrasenia = txtContrasenia.Text;
+            update.nivel = cbNivel.Text;
+            try
+            {
+                datacontext.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+
+            dgusu.ItemsSource = datacontext.Usuario;
         }
     }
 }

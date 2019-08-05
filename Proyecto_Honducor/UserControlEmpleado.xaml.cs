@@ -59,23 +59,29 @@ namespace Proyecto_Honducor
             {
                 if (txtNombre.Text != "" && txtApellido.Text != "" && txtCargo.Text != "" && txtDireccion.Text != "" && txtIdentidad.Text != "" && txtTelefono.Text != "" && dateFecha.Text != "" && cbSexo.Text != "" && cbEstadoCivil.Text != "")
                 {
-                    Empleado emp = new Empleado();
-                    emp.identidad = txtIdentidad.Text;
-                    emp.nombre = txtNombre.Text;
-                    emp.apellido = txtApellido.Text;
-                    emp.direccion = txtDireccion.Text;
-                    emp.telefono = txtTelefono.Text;
-                    emp.fechaNac = Convert.ToDateTime(dateFecha.Text);
-                    emp.sexo = cbSexo.Text;
-                    emp.idCargo = Convert.ToInt32(txtCargo.Text);
-                    emp.estadoCivil = cbEstadoCivil.Text;
+                    var usuariologead = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
+                    if (usuariologead == null)
+                    {
+                        Empleado emp = new Empleado();
+                        emp.identidad = txtIdentidad.Text;
+                        emp.nombre = txtNombre.Text;
+                        emp.apellido = txtApellido.Text;
+                        emp.direccion = txtDireccion.Text;
+                        emp.telefono = txtTelefono.Text;
+                        emp.fechaNac = Convert.ToDateTime(dateFecha.Text);
+                        emp.sexo = cbSexo.Text;
+                        emp.idCargo = Convert.ToInt32(txtCargo.Text);
+                        emp.estadoCivil = cbEstadoCivil.Text;
 
-                    data.Empleado.InsertOnSubmit(emp);
-                    data.SubmitChanges();
-                    dgEmpleado1.ItemsSource = data.Empleado;
+                        data.Empleado.InsertOnSubmit(emp);
+                        data.SubmitChanges();
+                        dgEmpleado1.ItemsSource = data.Empleado;
 
-                    var usuariologeado = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
-                    ClaseGlobal.Idempleadocreado = usuariologeado.idEmpleado;
+                        var usuariologeado = data.Empleado.FirstOrDefault(usu => usu.identidad.Equals(txtIdentidad.Text));
+                        ClaseGlobal.Idempleadocreado = usuariologeado.idEmpleado;
+                    }
+                    else
+                        MessageBox.Show("Ya existe un usuario con esa identidad");txtIdentidad.Focus();
                 }
                 else
                     MessageBox.Show("falta un dato por completar", MessageBoxImage.Warning.ToString());
