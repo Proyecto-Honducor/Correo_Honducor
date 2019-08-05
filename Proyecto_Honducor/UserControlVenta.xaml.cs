@@ -80,5 +80,21 @@ namespace Proyecto_Honducor
                 MessageBox.Show(ex.ToString());
             }
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as Grid).Children.Remove(this);
+        }
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtcantidad.Text = "";
+            txtCliente.Text = "";
+            txtEmpleado.Text = "";
+            txtfechaventa1.Text = "";
+            txtIdenCliente1.Text = "";
+            txtidPaquete.Text = "";
+            txtIvs.Text = "";
+            txtTotal.Text = "";
+            txtPrecio.Text = "";
+        }
     }
 }

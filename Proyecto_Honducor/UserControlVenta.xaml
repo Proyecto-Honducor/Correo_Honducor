@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <Grid Background="#90caf9" Height="70" VerticalAlignment="Top" Grid.Row="0" Margin="0,8,-0.2,0" Grid.RowSpan="2" >
             <TextBlock Text="Venta" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="White" />
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,12"  Background="#5d99c6"  BorderBrush="#2A2D34" RenderTransformOrigin="0.489,-0.591" Height="46" >
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,12"  Background="#5d99c6"  BorderBrush="#2A2D34" RenderTransformOrigin="0.489,-0.591" Height="46" Click="Button_Click" >
                 <materialDesign:PackIcon Kind="Close" Height="35" Width="35" />
             </Button>
 
@@ -48,19 +48,19 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Center" Height="370" Margin="0,6,0,-1.2" RenderTransformOrigin="0.513,0.679">
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Cantidad         " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBlock Text="Cantidad                " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtcantidad" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Precio Unidad  " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBlock Text="Precio Unidad        " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtPrecio" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="ISV                 " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBlock Text="ISV                          " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtIvs" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <TextBlock Text="Total              " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBlock Text="Total                        " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtTotal" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
@@ -68,11 +68,11 @@
                     <TextBox x:Name="txtidPaquete" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="-2,0">
-                    <TextBlock Text="Fecha Venta  " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBlock Text="Fecha Venta            " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <DatePicker x:Name="txtfechaventa1" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="-2,0">
-                    <TextBlock Text="Identidad Cliente              " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBlock Text="Identidad Cliente    " FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
                     <TextBox x:Name="txtIdenCliente1" Width="325" FontSize="20"  VerticalAlignment="Center" Foreground="Black" Margin="0,7,0,6.6" RenderTransformOrigin="0.179,0.767" />
                 </StackPanel>
             </StackPanel>
@@ -91,7 +91,8 @@
                 <ColumnDefinition Width="1200*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="8,26,132,20" Width="1060" RenderTransformOrigin="1.132,0.856" Grid.Column="3">
-                <Button x:Name="txtGenerar" FontSize="20" Content="Generar Factura" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Margin="390,10,0,8" Click="TxtGenerar_Click"/>
+                <Button x:Name="btnLimpiar" Content="Limpiar" FontSize="20" Background="#5d99c6"  BorderBrush="#2A2D34" Width="300" Height="50" RenderTransformOrigin="0.993,0.507" Click="BtnLimpiar_Click" Margin="240,0,0,0" />
+                <Button x:Name="txtGenerar" FontSize="20" Content="Generar Factura" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="50" Background="#5d99c6"  BorderBrush="#2A2D34" Margin="30,10,0,8" Click="TxtGenerar_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

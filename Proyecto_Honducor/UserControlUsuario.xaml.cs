@@ -48,9 +48,6 @@ namespace Proyecto_Honducor
             datacontext.Usuario.InsertOnSubmit(usu);
             datacontext.SubmitChanges();
 
-                
-
-
         }
 
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
