@@ -194,5 +194,25 @@ namespace Proyecto_Honducor
         {
             (this.Parent as Grid).Children.Remove(this);
         }
+
+        private void TxtCargo_KeyUp(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void TxtCargo_GotFocus(object sender, RoutedEventArgs e)
+        {
+            data = new LinqToSqlDataClassesDataContext();
+            var cargo = from u in data.GetTable<Cargo>()
+                        select new { u.idCargo, u.cargo1 };
+            dgEmpleado1.ItemsSource = cargo.ToList();
+        }
+
+        private void TxtCargo_LostFocus(object sender, RoutedEventArgs e)
+        {
+            data = new LinqToSqlDataClassesDataContext();
+            var empleado = from u in data.GetTable<Empleado>()
+                           select new { u.idEmpleado, u.identidad, u.nombre, u.apellido, u.direccion, u.fechaNac, u.estadoCivil, u.sexo, u.telefono };
+            dgEmpleado1.ItemsSource = empleado.ToList();
+        }
     }
 }
