@@ -61,10 +61,6 @@ namespace Proyecto_Honducor
                     else
                         MessageBox.Show("Usuario o Contraseña incorrect@s");
                 }
-               
-
-                //ClaseGlobal.Nomlog = usuariologeado.ToString();
-
             }
             catch (Exception ex)
             {
@@ -73,6 +69,37 @@ namespace Proyecto_Honducor
             }
             
             
+        }
+
+        private void TxtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                var usuariologeado = dataContext.Usuario.FirstOrDefault(usu => usu.nombreUsuario.Equals(txtUsuario.Text));
+                if (usuariologeado == null)
+                {
+                    MessageBox.Show("ingrese un usuario valido");
+                    txtUsuario.Text = "";
+                    txtUsuario.Focus();
+                }
+                else
+                {
+                    if (usuariologeado.contrasenia == txtContrasena.Password)
+                    {
+                        MessageBox.Show("Logueado con exito");
+                        ClaseGlobal.Idlog = usuariologeado.idUsuario;
+                        ClaseGlobal.Nomlog = txtUsuario.Text;
+                        ClaseGlobal.Cargolog = usuariologeado.nivel;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Usuario o Contraseña incorrect@s");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
