@@ -156,7 +156,7 @@ namespace Proyecto_Honducor
             {
                 var empleado = (from emp in data.Empleado
                                where emp.identidad == txtIdentidad.Text
-                               select emp).First();
+                               select emp).FirstOrDefault();
                 //var empleado = data.Empleado.First(emp => emp.nombre.Equals(txtNombre.Text));
                 if (empleado != null)
                 {
