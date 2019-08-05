@@ -96,5 +96,27 @@ namespace Proyecto_Honducor
             txtTotal.Text = "";
             txtPrecio.Text = "";
         }
+
+        private void TxtidPaquete_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TxtidPaquete_GotFocus(object sender, RoutedEventArgs e)
+        {
+            data = new LinqToSqlDataClassesDataContext();
+            var paquete = from pa in data.GetTable<Paquete>()
+                          select new { pa.idPaquete, pa.descripcion, pa.noSeguimiento, pa.peso, pa.direccion, pa.fechaRecibido, pa.fechaEntregado, pa.idCliente, pa.idCategoria };
+            dtDetalleVenta.ItemsSource = paquete.ToList();
+        }
+
+        private void TxtidPaquete_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+            data = new LinqToSqlDataClassesDataContext();
+            var venta = from u in data.GetTable<Venta>()
+                        select new { u.idEmpleado, u.identidadCliente, u.idPaquete, u.nombreCompletoCliente, u.fechaVenta, u.isv };
+            dtDetalleVenta.ItemsSource = venta.ToList();
+        }
     }
 }

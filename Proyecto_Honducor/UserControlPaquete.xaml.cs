@@ -147,7 +147,6 @@ namespace Proyecto_Honducor
         {
             data = new LinqToSqlDataClassesDataContext();
             var paquete = from pa in data.GetTable<Paquete>()
-                          where pa.noSeguimiento.Equals(Txtnoseguimiento.Text)
                           select new { pa.idPaquete, pa.descripcion, pa.noSeguimiento, pa.peso, pa.direccion, pa.fechaRecibido, pa.fechaEntregado, pa.idCliente, pa.idCategoria };
             dgPaquete.ItemsSource = paquete.ToList();
         }
@@ -164,7 +163,6 @@ namespace Proyecto_Honducor
         {
             data = new LinqToSqlDataClassesDataContext();
             var paquete = from pa in data.GetTable<Paquete>()
-                          where pa.noSeguimiento.Equals(Txtnoseguimiento.Text)
                           select new { pa.idPaquete, pa.descripcion, pa.noSeguimiento, pa.peso, pa.direccion, pa.fechaRecibido, pa.fechaEntregado, pa.idCliente, pa.idCategoria };
             dgPaquete.ItemsSource = paquete.ToList();
         }

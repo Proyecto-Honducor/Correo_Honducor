@@ -29,11 +29,6 @@ namespace Proyecto_Honducor
             log.ShowDialog();
             lblusu.Content = ClaseGlobal.Nomlog;
             lblcargo.Content = ClaseGlobal.Cargolog;
-
-            if(ClaseGlobal.Cargolog=="Empleado" || ClaseGlobal.Cargolog=="empleado")
-            {
-               
-            }
             startclock();
             
         }
