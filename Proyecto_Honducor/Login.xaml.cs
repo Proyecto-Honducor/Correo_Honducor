@@ -17,7 +17,7 @@ namespace Proyecto_Honducor
 {
     /// <summary>
     /// Lógica de interacción para Login.xaml
-    /// </summary>
+    //// </summary>
     public partial class Login : Window
     {
         ClaseGlobal cglobal = new ClaseGlobal();
