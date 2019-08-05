@@ -38,16 +38,16 @@ namespace Proyecto_Honducor
 
         private void TxtGenerar_Click(object sender, RoutedEventArgs e)
         {
-            Venta ven = new Venta();
-            ven.idEmpleado = txtEmpleado.Text;
-            ven.identidadCliente = txtIdenCliente.Text;
-            ven.idPaquete = Convert.ToInt32(txtidPaquete.Text);
-            ven.nombreCompletoCliente = txtCliente.Text;
-            ven.isv = Convert.ToDecimal(txtIvs.Text);
+            //Venta ven = new Venta();
+            //ven.idEmpleado = txtEmpleado.Text;
+            //ven.identidadCliente = txtIdenCliente.Text;
+            //ven.idPaquete = Convert.ToInt32(txtidPaquete.Text);
+            //ven.nombreCompletoCliente = txtCliente.Text;
+            //ven.isv = Convert.ToDecimal(txtIvs.Text);
 
-            data.Venta.InsertOnSubmit(ven);
-            data.SubmitChanges();
-            dtDetalleVenta.ItemsSource = data.Empleado;
+            //data.Venta.InsertOnSubmit(ven);
+            //data.SubmitChanges();
+            //dtDetalleVenta.ItemsSource = data.Empleado;
         }
     }
 }
