@@ -73,32 +73,35 @@ namespace Proyecto_Honducor
 
         private void TxtContrasena_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.Key.Equals(Key.Enter))
             {
-                var usuariologeado = dataContext.Usuario.FirstOrDefault(usu => usu.nombreUsuario.Equals(txtUsuario.Text));
-                if (usuariologeado == null)
+                try
                 {
-                    MessageBox.Show("ingrese un usuario valido");
-                    txtUsuario.Text = "";
-                    txtUsuario.Focus();
-                }
-                else
-                {
-                    if (usuariologeado.contrasenia == txtContrasena.Password)
+                    var usuariologeado = dataContext.Usuario.FirstOrDefault(usu => usu.nombreUsuario.Equals(txtUsuario.Text));
+                    if (usuariologeado == null)
                     {
-                        MessageBox.Show("Logueado con exito");
-                        ClaseGlobal.Idlog = usuariologeado.idUsuario;
-                        ClaseGlobal.Nomlog = txtUsuario.Text;
-                        ClaseGlobal.Cargolog = usuariologeado.nivel;
-                        this.Close();
+                        MessageBox.Show("ingrese un usuario valido");
+                        txtUsuario.Text = "";
+                        txtUsuario.Focus();
                     }
                     else
-                        MessageBox.Show("Usuario o Contraseña incorrect@s");
+                    {
+                        if (usuariologeado.contrasenia == txtContrasena.Password)
+                        {
+                            MessageBox.Show("Logueado con exito");
+                            ClaseGlobal.Idlog = usuariologeado.idUsuario;
+                            ClaseGlobal.Nomlog = txtUsuario.Text;
+                            ClaseGlobal.Cargolog = usuariologeado.nivel;
+                            this.Close();
+                        }
+                        else
+                            MessageBox.Show("Usuario o Contraseña incorrect@s");
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
     }
